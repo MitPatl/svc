@@ -14,4 +14,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClose() {
+    this.displaySideBar = false;
+  }
+
 }
