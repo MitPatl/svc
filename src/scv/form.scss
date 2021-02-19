@@ -1,0 +1,75 @@
+/* Buttons */
+.p-button {
+    padding: 0.125rem 1rem !important;
+    margin-right: .5rem !important
+  }
+
+  .p-button-label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button {
+    background: #112326;
+    border: 1px solid #112326;
+}
+
+/* Input text */
+.p-inputtext {
+    width: 100%;
+    margin: 5px 0;
+    padding: 0.225rem 0.5rem;
+}
+
+/* Radio Button */
+.p-radiobutton {
+    vertical-align: middle !important;
+    margin-right: 7px;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+    border-color: #797979;
+    background: #FFFFFF;
+}
+
+.p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+    background-color: #797979;
+}
+
+.p-radiobutton .p-radiobutton-box {
+    border: 2px solid #ced4da;
+    background: #ffffff;
+  }
+  .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+    border-color: #112326;
+  }
+  
+  .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+      border-color: #797979;
+      background: #FFFFFF;
+      color: #ffffff;
+  }
+  
+  .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 none;
+    border-color: #797979;
+  }
+  .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+    background-color: #797979;
+  }
+  
+  .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+    box-shadow: 0 none !important;
+    border-color: #797979;
+  }
+
+  label {
+    margin-bottom: 0;
+    vertical-align: top;
+}
+
+.p-field {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+.p-sidebar-right {
+  width: 30rem !important;
+  height: 600px !important;
+  top: 15% !important;
+  border-radius: 5px;
+  padding: .1rem !important;
+}
+
+.p-sidebar-content .p-panel .p-panel-header {
+  background: #008F96;
+  height: 45px;
+  color: #FFFFFF;
+}
+
+.p-sidebar .p-panel-content {
+  background: #f8f9fa;
+  margin: 5px 10px;
+}
+
+.p-sidebar-close-icon {
+  color: #FFFFFF;
+}
+
+.p-sidebar .p-sidebar-close:enabled:hover {
+  background: none !important;
+}
+
+.p-button {
+  padding: 0.125rem 1rem !important;
+  margin-right: .5rem !important;
+}
+/*# sourceMappingURL=styles.css.map */

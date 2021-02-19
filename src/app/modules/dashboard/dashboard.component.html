@@ -1,0 +1,34 @@
+<p-sidebar [(visible)]="displaySideBar" position="right" [modal]="true" [baseZIndex]="10000" class="sideBar">
+    <p-panel header="Group Railcars">
+        <div id="group">
+            <div class="svc-header">Group & track these 7 railcars as a Unit?</div>
+                <textarea rows="10" cols="30" pInputTextarea >
+UTLX 123456
+UTLX 158974
+UTLX 258963
+UTLX 147852
+UTLX 158748
+UTLX 789456
+UTLX 159753
+                </textarea>               
+                <div class="svc-header">Name Group:</div>
+                <div class="p-field">
+                    <p-radioButton name="groupname" value="val1" ></p-radioButton>
+                    <label for="username1">Create a new Unit or</label> <br>
+                    <input type="text" pInputText placeholder="Enter Unit Name" />
+                </div>
+                
+                <div class="p-field">
+                    <p-radioButton name="groupname" value="val1" ></p-radioButton>
+                    <label for="username1">Add to an existing Train</label> 
+                </div>
+                <div class="float-right">
+                    <p-button type="button" (click)="displaySideBar = false" label="Cancel" styleClass="p-button-secondary"></p-button>
+                    <p-button type="button"  routerlink="destination" label="Continue" styleClass="p-button-secondary"></p-button>
+                </div>
+        </div>
+        
+    </p-panel>
+</p-sidebar>
+
+<p-button styleClass="p-button-secondary" class="float-right" (click)="displaySideBar = true" icon="pi pi-filter" label="Filters"></p-button>

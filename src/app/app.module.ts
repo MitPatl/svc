@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedUtilitiesModule } from './shared-utilities/shared-utilities.module';
 import { ModulesModule } from './modules/modules.module';
+import { RouterModule } from '@angular/router';
 
-import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -17,8 +17,9 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedUtilitiesModule,
-    ModulesModule
+    HttpClientModule,
+    ModulesModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,31 @@
+.p-sidebar {
+    // background:a quamarine !important
+}
+
+.p-sidebar-right {
+    width: 30rem !important;
+    // height: 600px !important;
+    top: 10% !important;
+    border-radius: 5px;
+    padding: .1rem !important;
+}
+
+.p-sidebar-content .p-panel .p-panel-header {
+    background: #008F96;
+    height: 45px;
+    color: #FFFFFF
+}
+
+.p-sidebar .p-panel-content {
+    // background: #f8f9fa;
+    border: none;
+    // margin: 5px 10px;
+}
+
+.p-sidebar-close-icon {
+    color: #FFFFFF
+}
+
+.p-sidebar .p-sidebar-close:enabled:hover {
+    background: none !important;
+  }
