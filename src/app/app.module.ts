@@ -5,8 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModulesModule } from './modules/modules.module';
-import { RouterModule } from '@angular/router';
-
+import { AgGridModule } from 'node_modules/ag-grid-angular'
 
 
 @NgModule({
@@ -19,6 +18,7 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     HttpClientModule,
     ModulesModule,
+    AgGridModule.withComponents([])
    
   ],
   providers: [],

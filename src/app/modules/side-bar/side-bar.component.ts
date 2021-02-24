@@ -29,5 +29,20 @@ export class SideBarComponent implements OnInit {
   onBack() {
     this.continue = false;
   }
+
+  columnDefs = [
+      { field: 'TrainID' },
+      { field: 'Carrier' },
+      { field: 'Destination'},
+      { field: 'D'}
+  ];
+
+  rowData = [
+      { TrainID: 'TR-12345', Carrier: 'CN', Destination: 'GEISMAR', D:'LA' },
+      { TrainID: 'TR-25896', Carrier: 'CN', Destination: 'GEISMAR', D:'LA' },
+      { TrainID: 'UT-2698a', Carrier: 'SNF', Destination: 'Baltimore Harbor', D:'MD' },
+      { TrainID: 'UT-78945', Carrier: 'SNF', Destination: 'Pittsburgh', D:'PA' },
+      { TrainID: 'TR-12345', Carrier: 'SN', Destination: 'BRIDGETON', D:'MO' },      
+  ];
     
 }

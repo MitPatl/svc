@@ -1,3 +1,4 @@
+@import "./variabls.scss";
 /* Buttons */
 .p-button {
     padding: 0.125rem 1rem !important;
@@ -15,7 +16,7 @@
 }
 
 /* Input text */
-.p-inputtext {
+.p-inputtext, .p-autocomplete {
     width: 100%;
     margin: 5px 0;
     padding: 0.225rem 0.5rem;

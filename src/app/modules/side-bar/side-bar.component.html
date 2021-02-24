@@ -2,7 +2,7 @@
     <p-panel header="Group Railcars">
         <div id="group" *ngIf="!continue">
             <div class="svc-header">Group & track these 7 railcars as a Unit?</div>
-                <textarea rows="10" cols="30" pInputTextarea >
+            <p-chips>
 UTLX 123456
 UTLX 158974
 UTLX 258963
@@ -10,29 +10,56 @@ UTLX 147852
 UTLX 158748
 UTLX 789456
 UTLX 159753
-                </textarea>               
+            </p-chips>
+            <!-- <textarea rows="10" cols="30" pInputTextarea >
+                    <p-chips [(ngModel)]="" >
+UTLX 123456
+UTLX 158974
+UTLX 258963
+UTLX 147852
+UTLX 158748
+UTLX 789456
+UTLX 159753
+</p-chips>
+                </textarea>                -->
                 <div class="svc-header">Name Group:</div>
                 <div class="p-field">
-                    <p-radioButton name="groupname" value="val1" ></p-radioButton>
+                    <p-radioButton name="groupname" [value]="true" ></p-radioButton>
                     <label for="username1">Create a new Unit or</label> <br>
                     <input type="text" pInputText placeholder="Enter Unit Name" />
                 </div>
                 
                 <div class="p-field">
-                    <p-radioButton name="groupname" value="val1" ></p-radioButton>
+                    <p-radioButton name="groupname" [value]="false"></p-radioButton>
                     <label for="username1">Add to an existing Train</label> 
-                </div>
-                
+                </div>                
         </div>
-
+    <!-- Destination window -->
         <div *ngIf="continue">
-            Next level
+            <div class="svc-header">Select Destination:</div>
+                <span>Set the destination for Set1</span>
+                <div class="search-box">
+                    <div class="p-inputgroup">
+                        <input type="text" pInputText placeholder="Destination">
+                        <span class="p-button-icon pi pi-search"></span>         
+                    </div>
+                </div>
+                <!-- <div class="card">
+                    <ag-grid-angular
+                        style="width: auto; height: 300px;"
+                        class="ag-theme-alpine"
+                        [rowData]="rowData"
+                        [columnDefs]="columnDefs"
+                    >
+                    </ag-grid-angular>
+                </div> -->
         </div>
         <div class="float-left">
-            <p-button type="button" *ngIf="continue" (click)="onBack()" label="Back" styleClass="p-button-secondary"></p-button>
+            <!-- <p-button type="button" *ngIf="continue" (click)="onBack()" label="Back" styleClass="p-button-secondary"></p-button> -->
+            <div *ngIf="continue" (click)="onBack()" Class="pi pi-chevron-left">Back</div>
         </div>
         <div class="float-right">
-            <p-button type="button" (click)="onClose()" label="Cancel" styleClass="p-button-secondary"></p-button>
+            <!-- <p-button type="button" (click)="onClose()" label="Cancel" styleClass="p-button-secondary"></p-button> -->
             <p-button type="button" *ngIf="!continue" (click)="onContinue()" label="Continue" styleClass="p-button-secondary"></p-button>
             <p-button type="button" *ngIf="continue" label="Save" styleClass="p-button-secondary"></p-button>
         </div>

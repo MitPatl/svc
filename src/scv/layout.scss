@@ -1,3 +1,5 @@
+@import "./variabls.scss";
+
 body, .p-component {
     font-family: Open Sans;
     font-size: 0.875rem;
@@ -13,4 +15,19 @@ body, .p-component {
     font-size: .875rem;
     font-weight: bold;
     margin-bottom: 5px;
+}
+
+.search-box {
+    margin: 5px 0 15px 0
+}
+.search-box .p-inputtext {
+    border-right: none;
+}
+
+.search-box .p-button-icon.pi.pi-search {
+   align-items: center;
+   display: inline-flex;
+   border: 1px solid #ced4da;
+   padding: 0 5px;
+   border-left: none;
 }
