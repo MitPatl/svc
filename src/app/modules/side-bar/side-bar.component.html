@@ -2,7 +2,7 @@
     <p-panel header="Group Railcars" [formGroup]="formGroup">
         <div id="group" *ngIf="!continue">
             <div class="svc-header">Group & track these 7 railcars as a Unit?</div>
-            <p-chips formControlName="trackNumber" field="trainId"></p-chips>
+            <p-chips formControlName="trackNumber" field="trainId" (onAdd)="onAdd($event)" [addOnTab]="true" [addOnBlur]="true"></p-chips>
                 <div class="svc-header">Name Group:</div>
                 <div class="p-field">
                     <p-radioButton name="unit" label="Create a new Unit or"  formControlName="unit" [value]="true" ></p-radioButton>
@@ -20,9 +20,27 @@
                 <span>Set the destination for Set1</span>
                 <div class="search-box">
                     <div class="p-inputgroup">
-                        <p-autoComplete type="text" pInputText placeholder="Destination" [suggestions]="filterResults" field="trainId" (completeMethod)="onSearch($event)"></p-autoComplete>
+                        <p-autoComplete type="text" (onSelect)="onSelect($event)" pInputText placeholder="Destination" [suggestions]="filterResults" field="trainId" (completeMethod)="onSearch($event)"></p-autoComplete>
                         <span class="p-button-icon pi pi-search"></span>         
                     </div>
+                </div>
+                <div class="col-12">
+                    <p-table  [value]="searchList">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">List</div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-slist>
+                            <tr class="p-selectable-row">
+                                <td>
+                                    {{slist.name}}
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
                 </div>
                 <!-- <div class="card">
                     <ag-grid-angular

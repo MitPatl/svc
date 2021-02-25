@@ -38,19 +38,20 @@ export class SideBarComponent implements OnInit {
   ];
 
   public filterResults: any[] = [];
+  public searchList: any[]=[];
 
   constructor(
     private router: Router,
     public fb: FormBuilder
   ) { 
     this.formGroup = this.fb.group({
-      trackNumber: this.fb.control(this.rowData),
+      trackNumber: this.fb.control(''),
       unit: this.fb.control( true )
     });
   }
 
   ngOnInit(): void {
-    
+    this.formGroup.get('trackNumber')?.patchValue(this.rowData);
   }
 
   onClose() {
@@ -78,6 +79,23 @@ export class SideBarComponent implements OnInit {
         }
         
         this.filterResults = filtered;
+    }
+  }
+
+  onSelect(event: any) {
+    if(event) {
+      this.searchList.push({
+        name: event.trainId
+      });
+    }
+  }
+
+  onAdd(event: any) {
+    if(event) {
+      this.rowData.push({
+        trainId: event.value,
+        Carrier: 'CN', Destination: 'GEISMAR', D:'LA'
+      })
     }
   }
     
