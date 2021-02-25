@@ -1,37 +1,17 @@
 <p-sidebar [(visible)]="displaySideBar" position="right" [modal]="true" [baseZIndex]="10000" class="sideBar">
-    <p-panel header="Group Railcars">
+    <p-panel header="Group Railcars" [formGroup]="formGroup">
         <div id="group" *ngIf="!continue">
             <div class="svc-header">Group & track these 7 railcars as a Unit?</div>
-            <p-chips>
-UTLX 123456
-UTLX 158974
-UTLX 258963
-UTLX 147852
-UTLX 158748
-UTLX 789456
-UTLX 159753
-            </p-chips>
-            <!-- <textarea rows="10" cols="30" pInputTextarea >
-                    <p-chips [(ngModel)]="" >
-UTLX 123456
-UTLX 158974
-UTLX 258963
-UTLX 147852
-UTLX 158748
-UTLX 789456
-UTLX 159753
-</p-chips>
-                </textarea>                -->
+            <p-chips formControlName="trackNumber" field="trainId" [disabled]="true"></p-chips>
                 <div class="svc-header">Name Group:</div>
                 <div class="p-field">
-                    <p-radioButton name="groupname" [value]="true" ></p-radioButton>
-                    <label for="username1">Create a new Unit or</label> <br>
+                    <p-radioButton name="unit" label="Create a new Unit or"  formControlName="unit" [value]="true" ></p-radioButton>
                     <input type="text" pInputText placeholder="Enter Unit Name" />
                 </div>
                 
                 <div class="p-field">
-                    <p-radioButton name="groupname" [value]="false"></p-radioButton>
-                    <label for="username1">Add to an existing Train</label> 
+                    <p-radioButton name="unit" label="Add to an existing Train"  formControlName="unit" [value]="false"></p-radioButton>
+                    
                 </div>                
         </div>
     <!-- Destination window -->
@@ -40,7 +20,7 @@ UTLX 159753
                 <span>Set the destination for Set1</span>
                 <div class="search-box">
                     <div class="p-inputgroup">
-                        <input type="text" pInputText placeholder="Destination">
+                        <p-autoComplete type="text" pInputText placeholder="Destination" [suggestions]="filterResults" field="trainId" (completeMethod)="onSearch($event)"></p-autoComplete>
                         <span class="p-button-icon pi pi-search"></span>         
                     </div>
                 </div>
