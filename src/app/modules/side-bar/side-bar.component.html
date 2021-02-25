@@ -2,7 +2,7 @@
     <p-panel header="Group Railcars" [formGroup]="formGroup">
         <div id="group" *ngIf="!continue">
             <div class="svc-header">Group & track these 7 railcars as a Unit?</div>
-            <p-chips formControlName="trackNumber" field="trainId" [disabled]="true"></p-chips>
+            <p-chips formControlName="trackNumber" field="trainId"></p-chips>
                 <div class="svc-header">Name Group:</div>
                 <div class="p-field">
                     <p-radioButton name="unit" label="Create a new Unit or"  formControlName="unit" [value]="true" ></p-radioButton>
