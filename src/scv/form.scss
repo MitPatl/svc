@@ -15,8 +15,17 @@
     border: 1px solid #112326;
 }
 
+.p-button.p-button-text {
+  color: #000;
+}
+
+.p-button.p-button-text:enabled:hover {
+  color: #008F96;
+  background: none;
+}
+
 /* Input text */
-.p-inputtext, .p-autocomplete {
+.p-inputtext {
     width: 100%;
     margin: 5px 0;
     padding: 0.225rem 0.5rem;
@@ -34,7 +43,7 @@
 }
 
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-    background-color: #797979;
+    background-color: #008F96;
 }
 
 .p-radiobutton .p-radiobutton-box {
@@ -58,7 +67,7 @@
     border-color: #797979;
   }
   .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-    background-color: #797979;
+    background-color: #008F96;
   }
   
   .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
@@ -92,4 +101,19 @@
 
 .p-field {
     margin-bottom: 15px;
+}
+
+.search-box .p-autocomplete {
+  width: 100%;
+}
+
+.search-box .p-autocomplete .p-inputtext {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none
+}
+
+.search-box .p-autocomplete .p-inputtext:enabled:focus  {
+  box-shadow: 0 0;
 }
