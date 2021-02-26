@@ -92,10 +92,13 @@ export class SideBarComponent implements OnInit {
 
   onAdd(event: any) {
     if(event) {
+      this.formGroup.get('trackNumber')?.patchValue([]);
       this.rowData.push({
         trainId: event.value,
         Carrier: 'CN', Destination: 'GEISMAR', D:'LA'
       })
+
+      this.formGroup.get('trackNumber')?.patchValue(this.rowData);
     }
   }
     
