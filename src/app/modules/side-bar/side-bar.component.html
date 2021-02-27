@@ -6,7 +6,10 @@
                 <div class="svc-header">Name Group:</div>
                 <div class="p-field">
                     <p-radioButton name="unit" label="Create a new Unit or"  formControlName="unit" [value]="true" ></p-radioButton>
-                    <input type="text" pInputText placeholder="Enter Unit Name" />
+                    <input type="text" [ngClass]="{'form-submitted': formSubmitted}" pInputText placeholder="Enter Unit Name" formControlName="unitName" />
+                    <span class="highlight-error" *ngIf="formSubmitted">
+                        Unit name is required.
+                      </span>
                 </div>
                 
                 <div class="p-field">
@@ -17,7 +20,7 @@
     <!-- Destination window -->
         <div *ngIf="continue">
             <div class="svc-header">Select Destination:</div>
-                <span>Set the destination for Set1</span>
+                <span>Set the destination for {{unitName}}</span>
                 <div class="">
                     <div class="search-box">
                         <p-autoComplete type="text" (onSelect)="onSelect($event)" pInputText placeholder="Destination" [suggestions]="filterResults" field="trainId" (completeMethod)="onSearch($event)"></p-autoComplete>

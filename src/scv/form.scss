@@ -117,3 +117,14 @@
 .search-box .p-autocomplete .p-inputtext:enabled:focus  {
   box-shadow: 0 0;
 }
+
+/** highlight field for validation */
+
+
+.ng-invalid:not(form).form-submitted {
+  border: solid 1px rgb(255, 0, 0);
+}
+
+.highlight-error {
+  color: #FF0000;
+}

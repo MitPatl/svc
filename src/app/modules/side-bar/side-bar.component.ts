@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,8 @@ export class SideBarComponent implements OnInit {
   @Input() displaySideBar: boolean = false;
   public continue: boolean = false;
   public formGroup: FormGroup;
+  public formSubmitted: boolean = false;
+  public unitName: string = '';
   public columnDefs: any[] = [
     { field: 'TrainID' },
     { field: 'Carrier' },
@@ -46,7 +48,8 @@ export class SideBarComponent implements OnInit {
   ) { 
     this.formGroup = this.fb.group({
       trackNumber: this.fb.control(''),
-      unit: this.fb.control( true )
+      unit: this.fb.control( true ),
+      unitName: this.fb.control('', [Validators.required])
     });
   }
 
@@ -60,11 +63,23 @@ export class SideBarComponent implements OnInit {
   }
 
   onContinue() {
-    this.continue = true;
+    const unitName = this.formGroup.controls.unitName.value;
+    if(this.formGroup.controls.unit.value) {
+      if(this.formGroup.valid) {
+        this.continue = true;
+        this.unitName = unitName;
+        this.formSubmitted = false;
+      } else {
+        this.formSubmitted = true;
+      }
+    } else {
+      this.continue = true;
+    }
   }
 
   onBack() {
     this.continue = false;
+    this.formSubmitted = false;
   }
 
   onSearch(event: any) {
@@ -84,6 +99,7 @@ export class SideBarComponent implements OnInit {
 
   onSelect(event: any) {
     if(event) {
+      this.searchList = [];
       this.searchList.push({
         name: event.trainId
       });
@@ -93,10 +109,24 @@ export class SideBarComponent implements OnInit {
   onAdd(event: any) {
     if(event) {
       this.formGroup.get('trackNumber')?.patchValue([]);
-      this.rowData.push({
-        trainId: event.value,
-        Carrier: 'CN', Destination: 'GEISMAR', D:'LA'
-      })
+        
+      if(event.value.indexOf(',') !== -1) {
+        const data = event.value.split(',');
+        if(data && data.length) {
+          for(let x=0; x<data.length; x++) {
+            this.rowData.push({
+              trainId: data[x],
+              Carrier: '', Destination: '', D: ''
+            })
+          }
+        }
+      } else {
+        this.rowData.push({
+          trainId: event.value,
+          Carrier: 'CN', Destination: 'GEISMAR', D:'LA'
+        })
+      }
+      
 
       this.formGroup.get('trackNumber')?.patchValue(this.rowData);
     }
