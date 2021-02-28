@@ -73,6 +73,7 @@ export class SideBarComponent implements OnInit {
         this.formSubmitted = true;
       }
     } else {
+      this.unitName = 'Existing Train';
       this.continue = true;
     }
   }
@@ -80,6 +81,7 @@ export class SideBarComponent implements OnInit {
   onBack() {
     this.continue = false;
     this.formSubmitted = false;
+    this.formGroup.controls.unitName.patchValue('');
   }
 
   onSearch(event: any) {
