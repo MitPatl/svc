@@ -122,6 +122,17 @@ export class SideBarComponent implements OnInit {
             })
           }
         }
+      } if(event.value.indexOf(' ') !== -1) {
+        let data = event.value.replace(/(\s)+/g, ' ');
+        data = data.split(' ');
+        if(data && data.length) {
+          for(let x=0; x<data.length; x++) {
+            this.rowData.push({
+              trainId: data[x],
+              Carrier: '', Destination: '', D: ''
+            })
+          }
+        }
       } else {
         this.rowData.push({
           trainId: event.value,
