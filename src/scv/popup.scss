@@ -1,1 +1,18 @@
 @import "./variabls.scss";
+
+.p-dialog .p-dialog-header {
+    padding: .410rem;
+    background: $panel-gray;
+}
+
+.p-dialog .p-dialog-header .p-dialog-title {
+    font-size: .875rem;
+}
+
+.p-splitbutton-defaultbutton.p-button.p-component {
+    margin-right: 0 !important
+}
+
+.p-splitbutton-menubutton.p-button.p-component.p-button-icon-only {
+    padding: 0 5px !important;
+}

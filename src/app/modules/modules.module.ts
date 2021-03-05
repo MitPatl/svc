@@ -6,13 +6,15 @@ import { routing } from './modules.routing';
 import { PrimeNgModule } from '../shared-utilities/prime-ng/prime-ng.module';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { PopupOverlayComponent } from './popup-overlay/popup-overlay.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    SideBarComponent
+    SideBarComponent,
+    PopupOverlayComponent,
   ],
   exports:[
     DashboardComponent

@@ -1,0 +1,25 @@
+
+
+<p-button (click)="showMaximizableDialog()" label="Overlay" styleClass="p-button-secondary"></p-button>
+<p-dialog header="Location Detail" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '75vw'}" [maximizable]="true" [baseZIndex]="10000"
+    [draggable]="false">
+    <div class="card">
+        <p-tabView>
+            <p-tabPanel header="General & Address">
+                <p>General & Address</p>    
+            </p-tabPanel>
+            <p-tabPanel header="Codes">
+                <p>Codes</p>
+            </p-tabPanel>
+            <p-tabPanel header="Contacts">
+                <p>Contacts</p>    
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+        <ng-template pTemplate="footer">
+            <p-button (click)="displayMaximizable=false" label="Cancel" styleClass="p-button-secondary"></p-button>
+            <p-splitButton label="Save" (onClick)="save('info')" [model]="items" styleClass="p-button-secondary"></p-splitButton>
+            <!-- <p-button (click)="displayMaximizable=false" label="Save" class="p-button-text" styleClass="p-button-secondary"></p-button> -->
+
+        </ng-template>
+</p-dialog>
