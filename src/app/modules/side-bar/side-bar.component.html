@@ -1,4 +1,4 @@
-<p-sidebar [(visible)]="displaySideBar" position="right" [modal]="true" [baseZIndex]="10000" class="sideBar">
+<p-sidebar [(visible)]="displaySideBar" position="right" [modal]="true" [baseZIndex]="10000" class="sideBar" (onHide)="onClose()">
     <p-panel header="Group Railcars" [formGroup]="formGroup">
         <div id="group" *ngIf="!continue">
             <div class="svc-header">Group & track these 7 railcars as a Unit?</div>
