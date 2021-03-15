@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
-@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 // @import url('https://portal.amsteddigital.net/SCV/styles.298da697d958810587f5.css');
 @import "./scv/form.scss";
 @import "./scv/sidebar.scss";
 @import "./scv/layout.scss";
 @import "./scv/popup.scss";
+@import "./scv/tabs.scss";
+@import "./scv/panel.scss";
+@import "./scv/table.scss";
+
 

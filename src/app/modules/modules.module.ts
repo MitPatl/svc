@@ -5,8 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { routing } from './modules.routing';
 import { PrimeNgModule } from '../shared-utilities/prime-ng/prime-ng.module';
 import { SideBarComponent } from './side-bar/side-bar.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { PopupOverlayComponent } from './popup-overlay/popup-overlay.component';
+import { LocationDetailsComponent } from './location-details/location-details.component';
 
 
 
@@ -14,7 +13,7 @@ import { PopupOverlayComponent } from './popup-overlay/popup-overlay.component';
   declarations: [
     DashboardComponent,
     SideBarComponent,
-    PopupOverlayComponent,
+    LocationDetailsComponent,
   ],
   exports:[
     DashboardComponent
@@ -23,7 +22,6 @@ import { PopupOverlayComponent } from './popup-overlay/popup-overlay.component';
     CommonModule,
     routing,
     PrimeNgModule,
-    AgGridModule,
     ReactiveFormsModule
   ]
 })

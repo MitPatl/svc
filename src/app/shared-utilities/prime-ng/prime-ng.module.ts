@@ -42,6 +42,7 @@ import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 import { TreeModule } from 'primeng/tree';
 import { StepsModule } from 'primeng/steps';
+import { GMapModule } from 'primeng/gmap';
 
 @NgModule({
   imports: [
@@ -82,7 +83,8 @@ import { StepsModule } from 'primeng/steps';
     ProgressSpinnerModule,
     TreeModule,
     StepsModule,
-    SidebarModule
+    SidebarModule,
+    GMapModule
   ],
   exports: [
     OverlayPanelModule,
@@ -120,7 +122,8 @@ import { StepsModule } from 'primeng/steps';
     DialogModule,
     ProgressSpinnerModule,
     StepsModule,
-    SidebarModule
+    SidebarModule,
+    GMapModule
   ],
   providers: [MessageService,
     ConfirmationService]

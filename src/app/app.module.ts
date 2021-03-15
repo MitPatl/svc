@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModulesModule } from './modules/modules.module';
-import { AgGridModule } from 'node_modules/ag-grid-angular'
+import { GMapModule } from 'primeng/gmap'
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { AgGridModule } from 'node_modules/ag-grid-angular'
     BrowserAnimationsModule,
     HttpClientModule,
     ModulesModule,
-    AgGridModule.withComponents([])
+    GMapModule
    
   ],
   providers: [],
