@@ -1,0 +1,137 @@
+<p-button (click)="showMaximizableDialog()" label="Overlay" styleClass="p-button-secondary"></p-button>
+<p-dialog header="Location Detail" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '75vw'}" [maximizable]="true" [baseZIndex]="10000"
+    [draggable]="false">
+    <p-card>
+        <div class="p-grid">
+            <div class="p-col">
+                <div class="box">
+                    <span><i class="pi pi-angle-left"></i></span>
+                    <span><i class="pi pi-angle-right"></i></span>
+                </div>
+            </div>
+            <div class="p-col">
+                <div class="box float-right">
+                        <p-button (click)="displayMaximizable=false" label="Cancel" styleClass="p-button-secondary"></p-button>
+                        <p-splitButton label="Save" (onClick)="save('info')" [model]="items" styleClass="p-button-secondary"></p-splitButton>
+                        <!-- <p-button (click)="displayMaximizable=false" label="Save" class="p-button-text" styleClass="p-button-secondary"></p-button> -->
+                   
+                </div>
+            </div>
+        </div>
+    </p-card>
+    <p-table styleClass="p-datatable-gridlines">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Company</th>
+                <th>Description</th>
+                <th>Address 1</th>
+                <th>City</th>
+                <th>S-P-C</th>
+                <th>Reference #</th>
+            </tr>
+            <tr>
+                <td>Mexichem - PUE</td>
+                <td>Customer</td>
+                <td>Mexichem, INC</td>
+                <td>Direct</td>
+                <td>Parque Industrial 2000</td>
+                <td>Puebla</td>
+                <td>MX</td>
+                <td>150021-MX</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body">
+            <tr>
+                <td>1</td>
+            </tr>
+        </ng-template>
+    </p-table>
+        <p-tabView>
+            <p>* Required fields marked in red </p>
+            <p-tabPanel header="General & Address">
+                <div class="p-grid">
+                    <div class="p-col">
+                        <div class="box">
+                            <p-panel header="General">
+                                <div class="p-fluid">
+                                    <div class="p-field">
+                                      <label for="firstname1">Location Reference / ERP Id #:*</label>
+                                      <input id="firstname1" type="text" pInputText />
+                                    </div>
+                                    <div class="p-field">
+                                      <label for="lastname1">Location Name:*</label>
+                                      <input id="lastname1" type="text" pInputText />
+                                    </div>
+                                    <div class="p-field">
+                                        <label for="state">Location Type:*</label>
+                                        <p-dropdown
+                                          inputId="state"
+                                          placeholder="Select"
+                                          optionLabel="name"
+                                        ></p-dropdown>
+                                      </div>
+                                      <div class="p-field">
+                                        <label for="state">Location Group:*</label>
+                                        <p-dropdown
+                                          inputId="state"
+                                          placeholder="Select"
+                                          optionLabel="name"
+                                        ></p-dropdown>
+                                      </div>
+                                  </div>
+                            </p-panel>
+                        </div>
+                    </div>
+                    <div class="p-col">
+                        <div class="box">
+                            <p-panel header="Address / Lat Lon">
+                                <div class="p-fluid">
+                                    <div class="p-field">
+                                      <label for="firstname1">Location Reference / ERP Id #:*</label>
+                                      <input id="firstname1" type="text" pInputText />
+                                    </div>
+                                    <div class="p-field">
+                                      <label for="lastname1">Location Name:*</label>
+                                      <input id="lastname1" type="text" pInputText />
+                                    </div>
+                                    <div class="p-field">
+                                        <label for="state">Location Type:*</label>
+                                        <p-dropdown
+                                          inputId="state"
+                                          placeholder="Select"
+                                          optionLabel="name"
+                                        ></p-dropdown>
+                                      </div>
+                                      <div class="p-field">
+                                        <label for="state">Location Group:*</label>
+                                        <p-dropdown
+                                          inputId="state"
+                                          placeholder="Select"
+                                          optionLabel="name"
+                                        ></p-dropdown>
+                                      </div>
+                                  </div>
+                            </p-panel>
+                        </div>
+                    </div>
+                    <div class="p-col">
+                        <div class="box">
+                        <p-panel header="Map">
+                            <!-- <div #map style="width:100%;height:400px"></div> -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.949757477627!2d-75.58971974942935!3d39.94251349216686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f11abe2aafc7%3A0xf33e278ee256fe82!2s300%20Willowbrook%20Ln%2C%20West%20Chester%2C%20PA%2019382!5e0!3m2!1sen!2sus!4v1615696624928!5m2!1sen!2sus" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </p-panel>
+                        </div>
+                    </div>
+                </div>
+                
+            </p-tabPanel>
+            <p-tabPanel header="Codes">
+                <p>Codes</p>
+            </p-tabPanel>
+            <p-tabPanel header="Contacts">
+                <p>Contacts</p>    
+            </p-tabPanel>
+        </p-tabView>
+</p-dialog>
