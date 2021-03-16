@@ -1,1 +1,11 @@
 @import "./variabls.scss";
+
+.p-datatable {
+    margin-bottom: .975rem;
+    border: 1px solid #ced4da;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    padding: 0.295rem;
+    background: #e8e8e8;
+}

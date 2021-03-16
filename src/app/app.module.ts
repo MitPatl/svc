@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModulesModule } from './modules/modules.module';
-import { GMapModule } from 'primeng/gmap'
 
 
 @NgModule({
@@ -17,8 +16,7 @@ import { GMapModule } from 'primeng/gmap'
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ModulesModule,
-    GMapModule
+    ModulesModule
    
   ],
   providers: [],

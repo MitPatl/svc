@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PrimeNGConfig, MessageService, MenuItem } from 'primeng/api';
-import {  } from 'googlemaps';
 
 @Component({
   selector: 'app-location-details',
@@ -11,8 +10,6 @@ import {  } from 'googlemaps';
 export class LocationDetailsComponent implements OnInit {
   items: MenuItem[] = [];
   messageService: any;
-  @ViewChild('map') mapElement: any;
-  map: any;
     
   constructor(private primengConfig: PrimeNGConfig, messageService: MessageService) {}
 
@@ -27,14 +24,6 @@ export class LocationDetailsComponent implements OnInit {
           this.delete();
       }}
     ];
-
-    const mapProperties = {
-      center: new google.maps.LatLng(35.2271, -80.8431),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    // this.map = new google.maps.Map(this.mapElement.nativeElement,    mapProperties);
-    
   }
   initOverlays() {
     throw new Error('Method not implemented.');

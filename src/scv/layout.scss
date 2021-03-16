@@ -35,3 +35,15 @@ body, .p-component {
    padding: 0 5px;
    border-left: none;
 }
+
+
+/* Card */
+
+.p-card .p-card-body {
+    padding: 0.3125rem;
+    margin-bottom: 0.9375rem;
+}
+
+.p-card .p-card-content {
+    padding: 0;
+}

@@ -140,3 +140,32 @@
 .highlight-error {
   color: #FF0000;
 }
+
+
+/* Dropdown */
+
+.p-fluid .p-dropdown {
+  height: 30px;
+  align-items: center;
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: teal;
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+  box-shadow: 0 0;
+  border-color: teal;
+}
+
+:focus {
+  outline: 0 none
+}
+
+.p-field > label {
+  margin-bottom: 0.125rem;
+}
+
+.p-field > .p-inputtext {
+  margin: 0
+}

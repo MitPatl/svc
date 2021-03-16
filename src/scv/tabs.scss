@@ -1,0 +1,25 @@
+@import "./variabls.scss";
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    padding: 0.45rem;
+    border: 1px solid teal;
+    margin-right: 2px
+}
+
+.p-tabview .p-tabview-nav li:nth-child(1) {
+    padding-left: 15px
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    background: teal;
+    border-color: teal;
+    color: #FFFFFF
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link + .p-tabview .p-tabview-nav {
+    border-color: red !important
+}
+
+.p-tabview .p-tabview-panels {
+    border: 1px solid #ced4da;
+    border-top: none;
+}
