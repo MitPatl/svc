@@ -1,12 +1,12 @@
-<p-button (click)="showMaximizableDialog()" label="Overlay" styleClass="p-button-secondary"></p-button>
+<!-- <p-button (click)="showMaximizableDialog()" label="Overlay" styleClass="p-button-secondary"></p-button> -->
 <p-dialog header="Location Detail" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '75vw'}" [maximizable]="true" [baseZIndex]="10000"
     [draggable]="false">
     <p-card>
         <div class="p-grid">
             <div class="p-col">
                 <div class="box">
-                    <span><i class="pi pi-angle-left"></i></span>
-                    <span><i class="pi pi-angle-right"></i></span>
+                    <span [ngClass]="{'diableBtn': prevbtn}"><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span>
+                    <span [ngClass]="{'diableBtn': nextbtn}"><a href="javascript:;" (click)="next()"><i class="pi pi-angle-right" ></i></a></span>
                 </div>
             </div>
             <div class="p-col">
@@ -19,7 +19,7 @@
             </div>
         </div>
     </p-card>
-    <p-table styleClass="p-datatable-gridlines">
+    <p-table [value]="selectedData" styleClass="p-datatable-gridlines">
         <ng-template pTemplate="header">
             <tr>
                 <th>Name</th>
@@ -31,20 +31,17 @@
                 <th>S-P-C</th>
                 <th>Reference #</th>
             </tr>
-            <tr>
-                <td>Mexichem - PUE</td>
-                <td>Customer</td>
-                <td>Mexichem, INC</td>
-                <td>Direct</td>
-                <td>Parque Industrial 2000</td>
-                <td>Puebla</td>
-                <td>MX</td>
-                <td>150021-MX</td>
-            </tr>
         </ng-template>
-        <ng-template pTemplate="body">
+            <ng-template pTemplate="body" let-customer>
             <tr>
-                <td>1</td>
+                <td> {{ customer?.name }}</td>
+                <td> {{ customer?.type }}</td>
+                <td> {{ customer?.origin }}</td>
+                <td> {{ customer?.description }}</td>
+                <td> {{ customer?.address }}</td>
+                <td> {{ customer?.city }}</td>
+                <td> {{ customer?.spc }}</td>
+                <td> {{ customer?.reference }}</td>
             </tr>
         </ng-template>
     </p-table>
@@ -55,14 +52,14 @@
                     <div class="p-col">
                         <div class="box">
                             <p-panel header="General">
-                                <div class="p-fluid">
+                                <div class="p-fluid" [formGroup]="generalForm">
                                     <div class="p-field">
                                       <label for="firstname1">Location Reference / ERP Id #:*</label>
-                                      <input id="firstname1" type="text" pInputText />
+                                      <input id="firstname1" type="text" pInputText  formControlName="locationRef" />
                                     </div>
                                     <div class="p-field">
                                       <label for="lastname1">Location Name:*</label>
-                                      <input id="lastname1" type="text" pInputText />
+                                      <input id="lastname1" type="text" pInputText  formControlName="locationName" />
                                     </div>
                                     <div class="p-field">
                                         <label for="state">Location Type:*</label>
@@ -70,6 +67,7 @@
                                           inputId="state"
                                           placeholder="Select"
                                           optionLabel="name"
+                                          formControlName="locationType"
                                         ></p-dropdown>
                                       </div>
                                       <div class="p-field">
@@ -78,6 +76,7 @@
                                           inputId="state"
                                           placeholder="Select"
                                           optionLabel="name"
+                                          formControlName="locationGroup"
                                         ></p-dropdown>
                                       </div>
                                   </div>
@@ -87,14 +86,14 @@
                     <div class="p-col">
                         <div class="box">
                             <p-panel header="Address / Lat Lon">
-                                <div class="p-fluid">
+                                <div class="p-fluid" [formGroup]="addressForm">
                                     <div class="p-field">
                                       <label for="firstname1">Location Reference / ERP Id #:*</label>
-                                      <input id="firstname1" type="text" pInputText />
+                                      <input id="firstname1" type="text" pInputText formControlName="locationRef" />
                                     </div>
                                     <div class="p-field">
                                       <label for="lastname1">Location Name:*</label>
-                                      <input id="lastname1" type="text" pInputText />
+                                      <input id="lastname1" type="text" pInputText formControlName="locationName" />
                                     </div>
                                     <div class="p-field">
                                         <label for="state">Location Type:*</label>
@@ -102,6 +101,7 @@
                                           inputId="state"
                                           placeholder="Select"
                                           optionLabel="name"
+                                          formControlName="locationType"
                                         ></p-dropdown>
                                       </div>
                                       <div class="p-field">
@@ -110,6 +110,7 @@
                                           inputId="state"
                                           placeholder="Select"
                                           optionLabel="name"
+                                          formControlName="locationGroup"
                                         ></p-dropdown>
                                       </div>
                                   </div>

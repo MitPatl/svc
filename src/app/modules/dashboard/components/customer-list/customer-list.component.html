@@ -1,0 +1,52 @@
+<p-table [value]="customers" [(selection)]="selectedCustomers" 
+    [rows]="10"  selectionMode="single" (onRowSelect)="onRowSelect($event)" 
+    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Asset Name</th>
+            <th>Fleet</th>
+            <th>L/E</th>
+            <th>Origin</th>
+            <th>O</th>
+            <th>Destination</th>
+            <th>D</th>
+            <th>Departure</th>
+            <th>ETA</th>
+            <th>Arrival Status</th>
+            <th>Location</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr [pSelectableRow]="customer">
+            <td>
+                {{customer?.name}}
+            </td>
+            <td>{{customer?.fleet}}</td>
+            <td>{{customer?.le}}</td>
+            <td>{{customer?.origin}}</td>
+            <td>{{customer?.o}}</td>
+            <td>{{customer?.destination}}</td>
+            <td>
+                {{customer?.d}}
+            </td>
+            <td>
+                {{customer?.departure}}
+            </td>
+            <td>
+                {{customer?.eta}}
+            </td>
+            <td>
+                {{customer?.arrival }}
+            </td>
+            <td>
+                {{customer?.location}}
+            </td>
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">No customers found.</td>
+        </tr>
+    </ng-template>
+</p-table>

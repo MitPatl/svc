@@ -6,6 +6,8 @@ import { routing } from './modules.routing';
 import { PrimeNgModule } from '../shared-utilities/prime-ng/prime-ng.module';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
+import { CustomerListComponent } from './dashboard/components/customer-list/customer-list.component';
+import { SharedService } from '../shared-utilities/shared.service';
 
 
 
@@ -14,6 +16,7 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     DashboardComponent,
     SideBarComponent,
     LocationDetailsComponent,
+    CustomerListComponent,
   ],
   exports:[
     DashboardComponent
@@ -23,6 +26,9 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     routing,
     PrimeNgModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    SharedService
   ]
 })
 export class ModulesModule { }

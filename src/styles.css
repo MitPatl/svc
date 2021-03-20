@@ -32,3 +32,10 @@
 }
 /*# sourceMappingURL=styles.css.map */
 
+.container {
+  max-width: 98% !important;
+}
+
+.diableBtn {
+  opacity: 0.2;
+}
