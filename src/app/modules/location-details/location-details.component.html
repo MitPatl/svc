@@ -5,8 +5,9 @@
         <div class="p-grid">
             <div class="p-col">
                 <div class="box">
-                    <span [ngClass]="{'diableBtn': prevbtn}"><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span>
+                    {{ prevName }} <span [ngClass]="{'diableBtn': prevbtn}"><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span>
                     <span [ngClass]="{'diableBtn': nextbtn}"><a href="javascript:;" (click)="next()"><i class="pi pi-angle-right" ></i></a></span>
+                    {{ nextName }}
                 </div>
             </div>
             <div class="p-col">
