@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PrimeNGConfig, MessageService, MenuItem } from 'primeng/api';
+import { MessageService, MenuItem } from 'primeng/api';
 import { SharedService } from 'src/app/shared-utilities/shared.service';
+
 
 @Component({
   selector: 'app-location-details',
@@ -22,17 +23,16 @@ export class LocationDetailsComponent implements OnInit {
   nextbtn: boolean = false;
   generalForm: FormGroup = this.fb.group({});
   addressForm: FormGroup = this.fb.group({});
+  prevName: any;
+  nextName: any; 
     
   constructor(
-    private primengConfig: PrimeNGConfig, 
-    messageService: MessageService,
     public sharedService: SharedService,
     public fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
-
+    
     this.generalForm = this.fb.group({
       locationName: this.fb.control(''),
       locationRef: this.fb.control(''),
@@ -64,6 +64,7 @@ export class LocationDetailsComponent implements OnInit {
       this.customers = [];
       this.showMaximizableDialog();
       this.selectedData.push(resp.list[resp.index]);
+      this.nextName = resp.list[resp.index].name;
       this.customers = resp.list;
       this.nextData = resp.index;
       if(this.customers.length === 1) {
@@ -110,6 +111,8 @@ export class LocationDetailsComponent implements OnInit {
       this.selectedData = [];
       this.nextData--;
       this.selectedData.push(this.customers[this.nextData]);
+      this.prevName = this.customers[this.nextData].name;
+      this.nextName = '';
       if(this.nextData === 0) {
         this.nextbtn = false;
         this.prevbtn = true;
@@ -124,6 +127,8 @@ export class LocationDetailsComponent implements OnInit {
       this.selectedData = [];
       this.nextData++;
       this.selectedData.push(this.customers[this.nextData]);
+      this.prevName = '';
+      this.nextName = this.customers[this.nextData].name;
       if(this.nextData+1 === this.customers.length) {
         this.nextbtn = true;
         this.prevbtn = false;
