@@ -64,18 +64,24 @@ export class LocationDetailsComponent implements OnInit {
       this.customers = [];
       this.showMaximizableDialog();
       this.selectedData.push(resp.list[resp.index]);
-      this.nextName = resp.list[resp.index].name;
+      
       this.customers = resp.list;
       this.nextData = resp.index;
       if(this.customers.length === 1) {
         this.nextbtn = true;
         this.prevbtn = true;
+        this.nextName = resp.list[resp.index].name;
+        this.prevName = '';
       } else if(this.nextData === 0) {
         this.nextbtn = false;
         this.prevbtn = true;
+        this.nextName = resp.list[resp.index + 1].name;
+        this.prevName = resp.list[resp.index].name;
       } else if(this.nextData + 1 === this.customers.length) {
         this.nextbtn = true;
         this.prevbtn = false;
+        this.nextName = resp.list[resp.index].name;
+        this.prevName = resp.list[resp.index-1].name;
       } else {
         this.nextbtn = false;
         this.prevbtn = false;
@@ -112,12 +118,14 @@ export class LocationDetailsComponent implements OnInit {
       this.nextData--;
       this.selectedData.push(this.customers[this.nextData]);
       this.prevName = this.customers[this.nextData].name;
-      this.nextName = '';
+
       if(this.nextData === 0) {
         this.nextbtn = false;
         this.prevbtn = true;
       } else {
         this.nextbtn = false;
+        this.prevName = this.customers[this.nextData - 1].name;
+        this.nextName = this.customers[this.nextData].name;
       }
     }
   }
@@ -127,13 +135,15 @@ export class LocationDetailsComponent implements OnInit {
       this.selectedData = [];
       this.nextData++;
       this.selectedData.push(this.customers[this.nextData]);
-      this.prevName = '';
-      this.nextName = this.customers[this.nextData].name;
+
+      
       if(this.nextData+1 === this.customers.length) {
         this.nextbtn = true;
         this.prevbtn = false;
       } else {
         this.prevbtn = false;
+        this.prevName = this.customers[this.nextData].name;
+        this.nextName = this.customers[this.nextData + 1].name;
       }
     }
   }
