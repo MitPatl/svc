@@ -136,7 +136,6 @@ export class LocationDetailsComponent implements OnInit {
       this.nextData++;
       this.selectedData.push(this.customers[this.nextData]);
 
-      
       if(this.nextData+1 === this.customers.length) {
         this.nextbtn = true;
         this.prevbtn = false;
