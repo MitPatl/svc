@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
 import { SharedService } from 'src/app/shared-utilities/shared.service';
 
 @Component({
@@ -7,11 +8,11 @@ import { SharedService } from 'src/app/shared-utilities/shared.service';
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
-
+  @ViewChild('agGrid') agGrid!: AgGridAngular;
   public customers: any[]=[];
   public selectedCustomers: any;
   loading: boolean = true;
-
+  columnDefs: any[]=[];
   
   constructor(
     public sharedService: SharedService
@@ -78,6 +79,19 @@ export class CustomerListComponent implements OnInit {
         reference:'150021-MX'
       }
     ]
+
+    this.columnDefs = [
+      { field: 'name' , checkboxSelection: true},
+      { field: 'le', width: '80px'  },
+      { field: 'origin'},
+      { field: 'o', width: '100px' },
+      { field: 'destination', width: '130px' },
+      { field: 'd', width: '100px'},
+      { field: 'departure', width: '150px' },
+      { field: 'eta' },
+      { field: 'arrival', width: '100px'},
+      { field: 'location'},
+  ];
   }
 
   onRowSelect(event: any) {
@@ -87,6 +101,14 @@ export class CustomerListComponent implements OnInit {
       list: this.customers
     }
     this.sharedService.selectedCustomer.next(obj);
+  }
+
+  getSelectedRows() {
+    const selectedNodes = this.agGrid.api.getSelectedNodes();
+    const selectedData = selectedNodes.map(node => node.data );
+    const selectedDataStringPresentation = selectedData.map(node => `${node.name}`).join(', ');
+
+    alert(`Selected nodes: ${selectedDataStringPresentation}`);
   }
 
 }

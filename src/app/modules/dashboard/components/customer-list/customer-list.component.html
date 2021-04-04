@@ -1,3 +1,14 @@
+<button (click)="getSelectedRows()">Get Selected Rows</button>
+<ag-grid-angular
+    #agGrid
+    style="height: 250px;"
+    class="ag-theme-alpine agGrid"
+    [rowData]="customers"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+>
+</ag-grid-angular>
+<div style="margin-top:10px;"></div>
 <p-table [value]="customers" [(selection)]="selectedCustomers" 
     [rows]="10"  selectionMode="single" (onRowSelect)="onRowSelect($event)" 
     [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">

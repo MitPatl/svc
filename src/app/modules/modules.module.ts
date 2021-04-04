@@ -8,7 +8,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { CustomerListComponent } from './dashboard/components/customer-list/customer-list.component';
 import { SharedService } from '../shared-utilities/shared.service';
-
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { SharedService } from '../shared-utilities/shared.service';
     CommonModule,
     routing,
     PrimeNgModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
     SharedService
