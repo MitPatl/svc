@@ -13,7 +13,9 @@ export class CustomerListComponent implements OnInit {
   public selectedCustomers: any;
   loading: boolean = true;
   columnDefs: any[]=[];
-  
+  pagination: boolean = true;
+  paginationPageSize: number = 10;
+
   constructor(
     public sharedService: SharedService
   ) { }

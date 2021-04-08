@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-10">Archived Fleet Names</div>
+    <div class="col-12">If a Fleet Name is archived, it will only be shown in historical data views.</div>
+    <div class="col-12">
+        <p-table [value]="archiveData" [scrollable]="true" scrollHeight="200px">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+                <tr [pReorderableRow]="index">
+                    <td>
+                        {{ rowData?.name }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<p-dialog header="Custom Data Fields - Fleets" [(visible)]="showAddCars" [modal]="true" [style]="{width: '75vw'}" [maximizable]="true" [baseZIndex]="10000"
+    [draggable]="false" (onHide)="onClose()">
+    <p-card>
+        <div class="p-grid">
+            <div class="p-col">
+                <a href="javascript:;" (click)="showAddCars=false">Back to Add Cars/Wagons</a>
+            </div>
+            <div class="p-col">
+                <div class="box float-right">
+                    <p-button (click)="showAddCars=false" label="Cancel" styleClass="p-button-secondary"></p-button>
+                    <p-button label="Save" (onClick)="save()" styleClass="p-button-secondary"></p-button>
+                </div>
+            </div>
+        </div>
+    </p-card>
+    <div class="row">
+        <div class="col-8">
+            <p-card>
+                <app-add-fleet></app-add-fleet>
+            </p-card>
+        </div>
+        <div class="col-4">
+            <p-card>
+                <app-archive-fleet></app-archive-fleet>
+            </p-card>
+        </div>
+    </div>
+</p-dialog>

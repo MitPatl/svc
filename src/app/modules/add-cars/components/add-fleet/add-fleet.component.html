@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-6">
+        <label>Add Fleet Names</label>
+        <div class="row col-12">Add and organize your Fleets, they are displayed in Car/Wagon related views, like Tracking</div>
+        <div class="row col-12" [formGroup]="formGroup">
+            <textarea formControlName="carName" cols="50" rows="5"></textarea>
+        </div>
+        <div class="row col-12 float-right">
+            <!-- <p-button type="button" (click)="onClose()" label="Cancel" styleClass="p-button-secondary"></p-button> -->
+            <p-button type="button" (click)="onClickAdd()" label="Add" styleClass="p-button-secondary"></p-button>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <label>Active Fleet Names</label>
+        <div class="col-12">
+            <input type="checkbox"> Display Fleet Names alphabetically on Save
+        </div>
+        <div class="col-12" *ngIf="cars && cars.length">
+            <p-table [value]="cars" [columns]="cols" [reorderableColumns]="true" [scrollable]="true" scrollHeight="200px">
+                
+                <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                    <tr [pReorderableRow]="index">
+                        <td>
+                            <span class="pi pi-ellipsis-v"></span>
+                        </td>
+                        <td *ngFor="let col of columns">
+                            {{rowData[col.field]}}
+                        </td>
+                        <td style="text-align: center">
+                            <button pButton type="button" (click)="onArchive(rowData)" class="p-button-secondary" icon="pi pi-trash"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

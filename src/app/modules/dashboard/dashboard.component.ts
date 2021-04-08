@@ -10,10 +10,11 @@ export class DashboardComponent implements OnInit {
 
   public displaySideBar: boolean = false;
   public displayDialog: boolean = false; 
+  public addCars: boolean = false;
+  public showAddCars: boolean = false;
+
   constructor() { }
-
   
-
   ngOnInit(): void {
   }
 
@@ -23,4 +24,7 @@ export class DashboardComponent implements OnInit {
     this.displayDialog = newLocal;
   }
 
+  onCloseAddCars() {
+    this.showAddCars = false;
+  }
 }

@@ -9,6 +9,9 @@ import { LocationDetailsComponent } from './location-details/location-details.co
 import { CustomerListComponent } from './dashboard/components/customer-list/customer-list.component';
 import { SharedService } from '../shared-utilities/shared.service';
 import { AgGridModule } from 'ag-grid-angular';
+import { AddCarsComponent } from './add-cars/add-cars.component';
+import { AddFleetComponent } from './add-cars/components/add-fleet/add-fleet.component';
+import { ArchiveFleetComponent } from './add-cars/components/archive-fleet/archive-fleet.component';
 
 
 @NgModule({
@@ -17,6 +20,9 @@ import { AgGridModule } from 'ag-grid-angular';
     SideBarComponent,
     LocationDetailsComponent,
     CustomerListComponent,
+    AddCarsComponent,
+    AddFleetComponent,
+    ArchiveFleetComponent,
   ],
   exports:[
     DashboardComponent
