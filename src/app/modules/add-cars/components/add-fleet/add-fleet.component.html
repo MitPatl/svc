@@ -3,7 +3,7 @@
         <label>Add Fleet Names</label>
         <div class="row col-12">Add and organize your Fleets, they are displayed in Car/Wagon related views, like Tracking</div>
         <div class="row col-12" [formGroup]="formGroup">
-            <textarea formControlName="carName" cols="50" rows="5"></textarea>
+            <p-chips formControlName="carName" (onAdd)="onAdd($event)" [addOnTab]="true" [addOnBlur]="true"></p-chips>
         </div>
         <div class="row col-12 float-right">
             <!-- <p-button type="button" (click)="onClose()" label="Cancel" styleClass="p-button-secondary"></p-button> -->

@@ -13,6 +13,7 @@ export class AddFleetComponent implements OnInit {
   public cars: any[]=[];
   public formGroup: FormGroup = this.fb.group({});
   public archiveList: any[]=[];
+  public rowData: any[] = [];
 
   constructor(
     public fb: FormBuilder,
@@ -28,23 +29,44 @@ export class AddFleetComponent implements OnInit {
     ]
   }
 
+
+  onAdd(event: any) {
+    if(event) {
+      this.formGroup.get('carName')?.patchValue([]);
+      
+        
+      if(event.value.indexOf(',') !== -1) {
+        const data = event.value.split(',');
+        if(data && data.length) {
+          for(let x=0; x<data.length; x++) {
+            this.rowData.push(
+              data[x]
+            )
+          }
+        }
+      } if(event.value.indexOf(' ') !== -1) {
+        let data = event.value.replace(/(\s)+/g, ' ');
+        data = data.split(' ');
+        if(data && data.length) {
+          for(let x=0; x<data.length; x++) {
+            this.rowData.push(data[x])
+          }
+        }
+      } else {
+        this.rowData.push(event.value,)
+      }
+      
+
+      this.formGroup.get('carName')?.patchValue(this.rowData);
+    }
+  }
+
   onClickAdd() {
     if(this.formGroup.controls.carName.value) {
       const data = this.formGroup.controls.carName.value;
-      let list = [];
-      if(data.indexOf(' ') !== -1) {
-        list = this.formGroup.controls.carName.value.split(' ');
-      } else {
-        let dup = this.cars.filter(resp => resp.name === data);
-          if(dup.length === 0 && data != '') {
-            this.cars.push({
-              name: data
-            })
-          }
-      }
       
-      if(list.length > 1) {
-        list.forEach((obj: any) => {
+      if(data.length) {
+        data.forEach((obj: any) => {
           let dup = this.cars.filter(resp => resp.name === obj);
           if(dup.length === 0 && obj != '') {
             this.cars.push({
@@ -56,7 +78,8 @@ export class AddFleetComponent implements OnInit {
       }
     }
 
-    this.formGroup.controls.carName.patchValue('');
+    this.formGroup.controls.carName.patchValue([]);
+    this.rowData = [];
   }
 
   onArchive(data: any) {
