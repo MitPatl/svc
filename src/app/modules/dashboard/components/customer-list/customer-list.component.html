@@ -1,5 +1,6 @@
 <button (click)="getSelectedRows()">Get Selected Rows</button>
-<ag-grid-angular
+<div id="grid-theme-wrapper">
+    <ag-grid-angular
     #agGrid
     style="height: 250px;"
     class="ag-theme-alpine agGrid"
@@ -10,8 +11,11 @@
     [suppressRowClickSelection]="true"
     [pagination]="pagination"
     [paginationPageSize]="paginationPageSize"
+    (rowSelected)="onRowSelected($event)"
 >
 </ag-grid-angular>
+</div>
+
 <div style="margin-top:10px;"></div>
 <p-table [value]="customers" [(selection)]="selectedCustomers" 
     [rows]="10"  selectionMode="single" (onRowSelect)="onRowSelect($event)" 

@@ -15,6 +15,7 @@ export class CustomerListComponent implements OnInit {
   columnDefs: any[]=[];
   pagination: boolean = true;
   paginationPageSize: number = 10;
+  gridOptions = {animateRows: true}
 
   constructor(
     public sharedService: SharedService
@@ -93,7 +94,7 @@ export class CustomerListComponent implements OnInit {
       { field: 'eta' },
       { field: 'arrival', width: '100px'},
       { field: 'location'},
-  ];
+    ];
   }
 
   onRowSelect(event: any) {
@@ -111,6 +112,12 @@ export class CustomerListComponent implements OnInit {
     const selectedDataStringPresentation = selectedData.map(node => `${node.name}`).join(', ');
 
     alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  }
+
+  onRowSelected(obj: any) {
+    if(obj.node.selected) {
+      obj.node.setSelected(false);
+    }
   }
 
 }
