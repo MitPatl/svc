@@ -115,7 +115,7 @@ export class CustomerListComponent implements OnInit {
 
   onRowSelected(obj: any) {
     if(!obj.node.selected) {
-      obj.node.setSelected(false);
+      obj.node.gridApi.focusController.clearFocusedCell()
     }
   }
 
