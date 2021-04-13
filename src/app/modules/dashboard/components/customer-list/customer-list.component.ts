@@ -15,7 +15,6 @@ export class CustomerListComponent implements OnInit {
   columnDefs: any[]=[];
   pagination: boolean = true;
   paginationPageSize: number = 10;
-  gridOptions = {animateRows: true}
 
   constructor(
     public sharedService: SharedService
@@ -115,7 +114,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   onRowSelected(obj: any) {
-    if(obj.node.selected) {
+    if(!obj.node.selected) {
       obj.node.setSelected(false);
     }
   }
