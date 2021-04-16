@@ -39,3 +39,8 @@
 .diableBtn {
   opacity: 0.2;
 }
+
+p-chips{
+  min-width: 100%;
+  display: flex;
+}

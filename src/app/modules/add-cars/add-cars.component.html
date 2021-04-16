@@ -2,8 +2,11 @@
     [draggable]="false" (onHide)="onClose()">
     <p-card>
         <div class="p-grid">
-            <div class="p-col">
+            <!-- <div class="p-col">
                 <a href="javascript:;" (click)="showAddCars=false">Back to Add Cars/Wagons</a>
+            </div> -->
+            <div class="float-left">
+                <button pButton pRipple type="button" icon="pi pi-angle-left" href="javascript:;" (click)="showAddCars=false" class="p-button-rounded p-button-text" label="Back to Add Cars/Wagons"></button>
             </div>
             <div class="p-col">
                 <div class="box float-right">

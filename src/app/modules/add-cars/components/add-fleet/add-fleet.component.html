@@ -1,23 +1,25 @@
 <div class="row">
     <div class="col-6">
-        <label>Add Fleet Names</label>
-        <div class="row col-12">Add and organize your Fleets, they are displayed in Car/Wagon related views, like Tracking</div>
-        <div class="row col-12" [formGroup]="formGroup">
+        <label class="svc-header">Add Fleet Names</label>
+        <div class="col-12">Add and organize your Fleets, they are displayed in Car/Wagon related views, like Tracking</div>
+        <div class="col-12" [formGroup]="formGroup">
             <p-chips formControlName="carName" (onAdd)="onAdd($event)" [addOnTab]="true" [addOnBlur]="true"></p-chips>
         </div>
-        <div class="row col-12 float-right">
+        <div class="col-12">
             <!-- <p-button type="button" (click)="onClose()" label="Cancel" styleClass="p-button-secondary"></p-button> -->
+            <span class="float-right">
             <p-button type="button" (click)="onClickAdd()" label="Add" styleClass="p-button-secondary"></p-button>
+            </span>
         </div>
     </div>
 
     <div class="col-6">
-        <label>Active Fleet Names</label>
+        <label class="svc-header">Active Fleet Names</label>
         <div class="col-12">
             <input type="checkbox"> Display Fleet Names alphabetically on Save
         </div>
         <div class="col-12" *ngIf="cars && cars.length">
-            <p-table [value]="cars" [columns]="cols" [reorderableColumns]="true" [scrollable]="true" scrollHeight="200px">
+            <p-table class="active-flet" [value]="cars" [columns]="cols" [reorderableColumns]="true" [scrollable]="true" scrollHeight="200px">
                 
                 <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
                     <tr [pReorderableRow]="index">

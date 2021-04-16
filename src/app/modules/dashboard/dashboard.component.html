@@ -1,3 +1,39 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="row clearMargin">
+        <div class="col-md-8 col-sm-7 col-xs-6">
+            <div class="header-logo-container">
+                <img src="../../../assets/images/scv-logo.svg" class="navbar-brand clickable">
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="card side-nav">
+    <p-tabView>
+        <p-tabPanel header="Layout">
+            <p>Layout</p>    
+        </p-tabPanel>
+        <p-tabPanel header="Buttons">
+            <p>Buttons</p>
+        </p-tabPanel>
+        <p-tabPanel header="Form-UI">
+            <p>Form UI</p>    
+        </p-tabPanel>
+        <p-tabPanel header="Sidebar">
+            <div class="col-6">
+                <p-button styleClass="p-button-secondary" class="float-right" (click)="displaySideBar = true" icon="pi pi-filter" label="Filters"></p-button>
+            </div>
+            <p><app-side-bar [displaySideBar]="displaySideBar" (closeBar)="onClose()"></app-side-bar></p>    
+        </p-tabPanel>
+        <p-tabPanel header="Data-table">
+            <p>Grid</p>
+            <div class="row">
+                <app-customer-list></app-customer-list>
+            </div>    
+        </p-tabPanel>
+    </p-tabView>
+</div>
 
 <div class="container">
     <div class="row">

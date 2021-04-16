@@ -6,3 +6,64 @@
     width: 50rem !important
 }
 
+.navbar {
+    height: 60px;
+    width: 100%;
+    background-image: url("../../../assets/images/SCVHeader-bg.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    color: white;
+    border-radius: 0;
+    position: relative;
+    min-height: 60px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.navbar-web {
+    height: 63px;
+    top: 0;
+    left: 0px;
+    padding: 0;
+    float: left;
+    position: relative;
+}
+
+.navbar-brand {
+    top: 3px;
+    left: -15px;
+    height: 63px;
+    width: 255px;
+    padding: 0;
+    float: left;
+    position: relative;
+}
+
+.header-logo-container{
+    background: #FFFFFF;
+    min-height: inherit;
+    margin-top: -2.5px;
+    width: 500px;
+}
+
+.clearMargin {
+    margin: -8px auto!important;
+}
+
+.side-nav .p-tabview.p-component {
+    display: inline-flex;
+    width: 100%;
+}
+
+.side-nav .p-tabview-nav {
+    display: block;
+    width: 20%
+}
+
+.side-nav .p-tabview-panels {
+    width: 100%
+}
+
+.side-nav .p-tabview .p-tabview-nav li:nth-child(1) {
+    padding: 0 important
+}
