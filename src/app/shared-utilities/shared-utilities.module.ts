@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarFilter } from './filters/car-filter/car-filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CarFilter
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    CarFilter
   ]
 })
 export class SharedUtilitiesModule { }

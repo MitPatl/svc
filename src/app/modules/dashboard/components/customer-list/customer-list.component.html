@@ -4,7 +4,7 @@
     #agGrid
     style="height: 250px;"
     class="ag-theme-alpine agGrid"
-    [rowData]="customers"
+    [rowData]="customersData"
     [columnDefs]="columnDefs"
     rowSelection="multiple"
     [groupSelectsChildren]="true"
@@ -12,6 +12,8 @@
     [pagination]="pagination"
     [paginationPageSize]="paginationPageSize"
     (rowSelected)="onRowSelected($event)"
+    [frameworkComponents]="frameworkComponents"
+    [defaultColDef]="defaultColDef"
 >
 </ag-grid-angular>
 </div>

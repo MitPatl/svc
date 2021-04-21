@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModulesModule } from './modules/modules.module';
+import { SharedUtilitiesModule } from './shared-utilities/shared-utilities.module';
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -16,8 +18,9 @@ import { ModulesModule } from './modules/modules.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ModulesModule
-   
+    ModulesModule,
+    ReactiveFormsModule,
+    SharedUtilitiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
