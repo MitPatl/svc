@@ -2240,7 +2240,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       let filteredData: any[] = [];
       if(list && list.length) {
         for(let x=0; x<list.length; x++) {
-          filter = this.customers.filter(resp => resp.Asset === list[x].trim());
+          filter = this.customers.filter(resp => (resp.Asset).toLowerCase() === list[x].trim().toLowerCase());
 
           if(filter && filter.length) {
             filteredData = filteredData.concat(...filter);
