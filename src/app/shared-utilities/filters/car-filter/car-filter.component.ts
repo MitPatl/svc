@@ -89,7 +89,6 @@ export class CarFilter implements AgFilterComponent {
   onAddSearch(event: any) {
     if(event) {
       this.searchForm.get('trackNumber')?.patchValue([]);
-      this.rowData = [];
       if(event.value.indexOf(',') !== -1) {
         const data = event.value.split(',');
         if(data && data.length) {
@@ -112,8 +111,10 @@ export class CarFilter implements AgFilterComponent {
 
   apply() {
     this.searchSubject.next(this.searchForm.controls.trackNumber.value);
+    this.rowData = [];
   }
   clear() {
+    this.rowData = [];
     this.searchForm.controls.trackNumber.patchValue([]);
     this.searchSubject.next(this.searchForm.controls.trackNumber.value);
   }
