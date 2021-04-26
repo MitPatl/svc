@@ -1,10 +1,14 @@
 <div style="padding: 4px; width: 200px;">
     <div style="font-weight: bold;">Wagon Filter</div>
-    <div>
-      <textarea
+    <div [formGroup]="searchForm">
+      <p-chips  formControlName="trackNumber" field="carId" ngDefaultControl (onAdd)="onAddSearch($event)" class="chipHeight" [addOnTab]="true" [addOnBlur]="true"></p-chips>
+      <div *ngIf="noSearchData" class="redError">{{ noSearchData }} does not exist</div>
+      <button (click)="apply()">Apply</button>
+      <button (click)="clear()">Clear</button>
+      <!-- <textarea
         style="margin: 4px 0 4px 0;"
         type="text"
         (keyup)="onKeyUpSearch($event)"
-        placeholder="Search..."></textarea>
+        placeholder="Search..."></textarea> -->
     </div>
   </div>

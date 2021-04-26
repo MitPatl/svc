@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { CarFilter } from 'src/app/shared-utilities/filters/car-filter/car-filter.component';
 import { SharedService } from 'src/app/shared-utilities/shared.service';
+import 'ag-grid-enterprise';
 
 @Component({
   selector: 'app-customer-list',
@@ -2182,25 +2183,28 @@ export class CustomerListComponent implements OnInit, OnDestroy {
     this.customersData = this.customers;
     this.columnDefs = [
       { headerName: 'Car/Wagon', field: 'Asset' , checkboxSelection: true, filter: 'carFilter'},
-      { headerName: 'Fleet', field: 'fleet', width: '80px', filter: 'agTextColumnFilter', filterParams: {
-        filters: [{
-          filter: 'agTextColumnFilter'
-        },{
-          filter: 'agSetColumnFilter'
-        }],
+      { headerName: 'Fleet', field: 'AssetGroup', width: '80px', filter: 'agMultiColumnFilter',
+      filterParams: {
+        buttons: ['apply', 'reset'],
+        filters: [
+          {
+            filter: 'agTextColumnFilter'
+          },
+          { filter: 'agSetColumnFilter' }
+        ],
         filterOptions: ['equals', 'notEqual'],
-        debounceMs: 200
     }},
-      { headerName: 'L/E', field: 'LoadStatus', filter: 'agTextColumnFilter', filterParams: {
+      {  headerName: 'L/E', field: 'LoadStatus', filter: 'agMultiColumnFilter', filterParams: {
         filters: [{
           filter: 'agTextColumnFilter',
-          ilterParams: { defaultOption: 'equals' }
+          filterOptions: ['equals', 'notEqual'],
         },{
           filter: 'agSetColumnFilter'
         }],
-        filterOptions: ['equals', 'notEqual'],
+        
+        buttons: ['apply', 'reset'],
         debounceMs: 200
-    }},
+      }},
       { headerName: 'Origin', field: 'Origin', width: '100px' },
       { headerName: 'O', field: 'OriginState', width: '130px' },
       { headerName: 'Destination', field: 'Destination', width: '100px'},
@@ -2221,6 +2225,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       flex: 1,
       minWidth: 200,
       filter: true,
+      menuTabs: ['filterMenuTab'],
       resizable: true,
     };
 
@@ -2235,20 +2240,26 @@ export class CustomerListComponent implements OnInit, OnDestroy {
 
   filterCarData(data: any) {
     if(data){
-      let list = data.split(',');
       let filter: any = '';
       let filteredData: any[] = [];
-      if(list && list.length) {
-        for(let x=0; x<list.length; x++) {
-          filter = this.customers.filter(resp => (resp.Asset).toLowerCase() === list[x].trim().toLowerCase());
+      let doesNotExist: any[] = [];
+      if(data && data.length) {
+        for(let x=0; x<data.length; x++) {
+          filter = this.customers.filter(resp => (resp.Asset).toLowerCase() === data[x].carId.trim().toLowerCase());
 
           if(filter && filter.length) {
             filteredData = filteredData.concat(...filter);
+          } else {
+            doesNotExist.push(data[x].carId);
           }
         }
 
         this.customersData = filteredData;
+      } else {
+        this.customersData = this.customers;
       }
+
+      this.sharedService.searchDataNotExist.next(doesNotExist);
     }
   }
 

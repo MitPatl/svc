@@ -69,3 +69,8 @@ body, .p-component {
 .side-nav .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
     width: 100%
 }
+
+.chipHeight .p-chips ul {
+    max-height: 100px !important;
+    overflow-y: auto !important;
+}

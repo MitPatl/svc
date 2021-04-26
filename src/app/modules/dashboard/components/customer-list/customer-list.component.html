@@ -2,7 +2,7 @@
 <div id="grid-theme-wrapper">
     <ag-grid-angular
     #agGrid
-    style="height: 250px;"
+    style="height: 400px;"
     class="ag-theme-alpine agGrid"
     [rowData]="customersData"
     [columnDefs]="columnDefs"
@@ -16,6 +16,7 @@
     [defaultColDef]="defaultColDef"
 >
 </ag-grid-angular>
+
 </div>
 
 <div style="margin-top:10px;"></div>
@@ -40,27 +41,27 @@
     <ng-template pTemplate="body" let-customer>
         <tr [pSelectableRow]="customer">
             <td>
-                {{customer?.name}}
+                {{customer?.Asset}}
             </td>
-            <td>{{customer?.fleet}}</td>
-            <td>{{customer?.le}}</td>
-            <td>{{customer?.origin}}</td>
-            <td>{{customer?.o}}</td>
-            <td>{{customer?.destination}}</td>
+            <td>{{customer?.AssetGroup}}</td>
+            <td>{{customer?.LoadStatus}}</td>
+            <td>{{customer?.Origin}}</td>
+            <td>{{customer?.OriginState}}</td>
+            <td>{{customer?.Destination}}</td>
             <td>
-                {{customer?.d}}
-            </td>
-            <td>
-                {{customer?.departure}}
+                {{customer?.DestinationState}}
             </td>
             <td>
-                {{customer?.eta}}
+                {{customer?.DepartureDate}}
             </td>
             <td>
-                {{customer?.arrival }}
+                {{customer?.EtaDate}}
             </td>
             <td>
-                {{customer?.location}}
+                {{customer?.ArrivalStatus }}
+            </td>
+            <td>
+                {{customer?.LocationName}}
             </td>
             
         </tr>
