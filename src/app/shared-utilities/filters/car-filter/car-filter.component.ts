@@ -93,18 +93,22 @@ export class CarFilter implements AgFilterComponent {
         const data = event.value.split(',');
         if(data && data.length) {
           for(let x=0; x<data.length; x++) {
-            this.rowData.push({
-              carId: data[x].trim()
-            })
+            if(data[x].trim()) {
+              this.rowData.push({
+                carId: data[x].trim()
+              })
+            }
           }
         }
       } else if(event.value.indexOf('\t') !== -1) {
         const data = event.value.split('\t');
         if(data && data.length) {
           for(let x=0; x<data.length; x++) {
-            this.rowData.push({
-              carId: data[x].trim()
-            })
+            if(data[x].trim()) {
+              this.rowData.push({
+                carId: data[x].trim()
+              })
+            }
           }
         }
       } else {
