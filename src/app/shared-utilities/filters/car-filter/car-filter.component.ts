@@ -100,6 +100,28 @@ export class CarFilter implements AgFilterComponent {
             }
           }
         }
+      } else if(event.value.indexOf('\n') !== -1) {
+        const data = event.value.split('\n');
+        if(data && data.length) {
+          for(let x=0; x<data.length; x++) {
+            const colData = data[x].split('\t');
+            if(colData && colData.length) {
+              for(let w=0; w<colData.length; w++) {
+                if(colData[w].trim()) {
+                  this.rowData.push({
+                    carId: colData[w].trim()
+                  })
+                }
+              }
+            } else {
+              if(data[x].trim()) {
+                this.rowData.push({
+                  carId: colData[x].trim()
+                })
+              }
+            }
+          }
+        }
       } else if(event.value.indexOf('\t') !== -1) {
         const data = event.value.split('\t');
         if(data && data.length) {
