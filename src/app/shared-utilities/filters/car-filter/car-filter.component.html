@@ -1,7 +1,7 @@
 <div style="padding: 4px; width: 200px;">
     <div style="font-weight: bold;">Wagon Filter</div>
     <div [formGroup]="searchForm">
-      <p-chips  formControlName="trackNumber" field="carId" ngDefaultControl (onAdd)="onAddSearch($event)" class="chipHeight" [addOnTab]="true" [addOnBlur]="true"></p-chips>
+      <p-chips  formControlName="trackNumber" field="carId" ngDefaultControl  (paste)="handlePaste($event)" (onAdd)="onAddSearch($event)" class="chipHeight" [addOnTab]="true" [addOnBlur]="true"></p-chips>
       <div *ngIf="noSearchData" class="redError">{{ noSearchData }} does not exist</div>
       <button (click)="apply()">Apply</button>
       <button (click)="clear()">Clear</button>
