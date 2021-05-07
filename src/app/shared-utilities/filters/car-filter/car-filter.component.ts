@@ -99,10 +99,11 @@ export class CarFilter implements AgFilterComponent {
   }
 
   onAddSearch(event: any) {
-    if(this.pastedText) {
-      this.searchForm.get('trackNumber')?.patchValue([]);
-      if(this.pastedText.indexOf(',') !== -1) {
-        const data = this.pastedText.split(',');
+    let inputData = this.pastedText ? this.pastedText : event.value;
+    if(inputData) {
+      
+      if(inputData.indexOf(',') !== -1) {
+        const data = inputData.split(',');
         if(data && data.length) {
           for(let x=0; x<data.length; x++) {
             if(data[x].trim()) {
@@ -112,32 +113,11 @@ export class CarFilter implements AgFilterComponent {
             }
           }
         }
-      } else if(this.pastedText.indexOf('\n') !== -1) {
-        const data = this.pastedText.split('\n');
+      } else if(inputData.indexOf(' ') !== -1) {
+        const data = inputData.split(' ');
         if(data && data.length) {
           for(let x=0; x<data.length; x++) {
-            const colData = data[x].split('\t');
-            if(colData && colData.length) {
-              for(let w=0; w<colData.length; w++) {
-                if(colData[w].trim()) {
-                  this.rowData.push({
-                    carId: colData[w].trim()
-                  })
-                }
-              }
-            } else {
-              if(data[x].trim()) {
-                this.rowData.push({
-                  carId: colData[x].trim()
-                })
-              }
-            }
-          }
-        }
-      } else if(this.pastedText.indexOf('\t') !== -1) {
-        const data = this.pastedText.split('\t');
-        if(data && data.length) {
-          for(let x=0; x<data.length; x++) {
+            
             if(data[x].trim()) {
               this.rowData.push({
                 carId: data[x].trim()
@@ -147,7 +127,7 @@ export class CarFilter implements AgFilterComponent {
         }
       } else {
         this.rowData.push({
-          carId: this.pastedText.trim()
+          carId: inputData.trim()
         })
       }
       
@@ -158,7 +138,6 @@ export class CarFilter implements AgFilterComponent {
 
   apply() {
     this.searchSubject.next(this.searchForm.controls.trackNumber.value);
-    this.rowData = [];
     this.pastedText = '';
   }
   clear() {
@@ -166,5 +145,12 @@ export class CarFilter implements AgFilterComponent {
     this.pastedText = '';
     this.searchForm.controls.trackNumber.patchValue([]);
     this.searchSubject.next(this.searchForm.controls.trackNumber.value);
+  }
+
+  onRemove(event: any) {
+    if(event) {
+      const x = this.rowData.findIndex(resp => resp.carId === event.value.carId);
+      this.rowData.splice(x, 1);
+    }
   }
 }
