@@ -2248,7 +2248,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
           //filter = this.customers.filter(resp => (resp.Asset).toLowerCase() === data[x].carId.trim().toLowerCase());
           filter = false;
           this.customers.filter(resp => {
-            if(resp.Asset.indexOf(data[x].carId) !== -1){
+            if(resp.Asset.indexOf(data[x].carId.trim().toLowerCase()) != -1){
               let exist = filteredData.filter(obj => obj.Asset === resp.Asset);
               filter = true;
               if(exist.length === 0){
