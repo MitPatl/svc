@@ -101,15 +101,20 @@ export class CarFilter implements AgFilterComponent {
   onAddSearch(event: any) {
     let inputData = this.pastedText ? this.pastedText : event.value;
     if(inputData) {
-      
+      inputData = inputData.replace(/\t+/g, ' ');
+      inputData = inputData.replace(/\n+/g, ' ');
+      inputData = inputData.replace(/\s\s+/g, ' ');
       if(inputData.indexOf(',') !== -1) {
         const data = inputData.split(',');
         if(data && data.length) {
           for(let x=0; x<data.length; x++) {
             if(data[x].trim()) {
-              this.rowData.push({
-                carId: data[x].trim()
-              })
+              if(this.rowData.indexOf(data[x].trim()) !== -1){
+                this.rowData.push({
+                  carId: data[x].trim()
+                })
+              }
+              
             }
           }
         }
@@ -119,9 +124,12 @@ export class CarFilter implements AgFilterComponent {
           for(let x=0; x<data.length; x++) {
             
             if(data[x].trim()) {
-              this.rowData.push({
-                carId: data[x].trim()
-              })
+              let exist = this.rowData.filter(obj => obj.carId === data[x].trim());
+              if(exist.length === 0){
+                this.rowData.push({
+                  carId: data[x].trim()
+                })
+              }
             }
           }
         }
@@ -131,7 +139,7 @@ export class CarFilter implements AgFilterComponent {
         })
       }
       
-
+      this.pastedText = '';
       this.searchForm.get('trackNumber')?.patchValue(this.rowData);
     }
   }

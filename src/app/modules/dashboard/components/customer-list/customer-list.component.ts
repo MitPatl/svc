@@ -2240,27 +2240,26 @@ export class CustomerListComponent implements OnInit, OnDestroy {
 
   filterCarData(data: any) {
     if(data){
-      let filter: any = '';
+      let filter: boolean = false;
       let filteredData: any[] = [];
       let doesNotExist: any[] = [];
       if(data && data.length) {
         for(let x=0; x<data.length; x++) {
           //filter = this.customers.filter(resp => (resp.Asset).toLowerCase() === data[x].carId.trim().toLowerCase());
-
+          filter = false;
           this.customers.filter(resp => {
             if(resp.Asset.indexOf(data[x].carId) !== -1){
               let exist = filteredData.filter(obj => obj.Asset === resp.Asset);
+              filter = true;
               if(exist.length === 0){
                 filteredData.push(resp);
               }
             }
           });
 
-          // if(filter && filter.length) {
-          //   filteredData = filteredData.concat(...filter);
-          // } else {
-          //   doesNotExist.push(data[x].carId);
-          // }
+          if(!filter) {
+            doesNotExist.push(data[x].carId);
+          }
         }
 
         this.customersData = filteredData;
