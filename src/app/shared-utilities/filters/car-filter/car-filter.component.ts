@@ -101,9 +101,9 @@ export class CarFilter implements AgFilterComponent {
   onAddSearch(event: any) {
     let inputData = this.pastedText ? this.pastedText : event.value;
     if(inputData) {
-      inputData = inputData.replace(/\t+/g, ' ');
-      inputData = inputData.replace(/\n+/g, ' ');
-      inputData = inputData.replace(/\s\s+/g, ' ');
+      // inputData = inputData.replace(/\t+/g, ' ');
+      // inputData = inputData.replace(/\n+/g, ' ');
+      // inputData = inputData.replace(/\s\s+/g, ' ');
       if(inputData.indexOf(',') !== -1) {
         const data = inputData.split(',');
         if(data && data.length) {
@@ -118,18 +118,36 @@ export class CarFilter implements AgFilterComponent {
             }
           }
         }
-      } else if(inputData.indexOf(' ') !== -1) {
-        const data = inputData.split(' ');
+      } else if(inputData.indexOf('\n') !== -1) {
+        const data = inputData.split('\n');
         if(data && data.length) {
           for(let x=0; x<data.length; x++) {
-            
-            if(data[x].trim()) {
-              let exist = this.rowData.filter(obj => obj.carId === data[x].trim());
-              if(exist.length === 0){
+            const colData = data[x].split('\t');
+            if(colData && colData.length) {
+              for(let w=0; w<colData.length; w++) {
+                if(colData[w].trim()) {
+                  this.rowData.push({
+                    carId: colData[w].trim()
+                  })
+                }
+              }
+            } else {
+              if(data[x].trim()) {
                 this.rowData.push({
-                  carId: data[x].trim()
+                  carId: colData[x].trim()
                 })
               }
+            }
+          }
+        }
+      } else if(inputData.indexOf('\t') !== -1) {
+        const data = inputData.split('\t');
+        if(data && data.length) {
+          for(let x=0; x<data.length; x++) {
+            if(data[x].trim()) {
+              this.rowData.push({
+                carId: data[x].trim()
+              })
             }
           }
         }
