@@ -1,13 +1,16 @@
 <!-- <p-button (click)="showMaximizableDialog()" label="Overlay" styleClass="p-button-secondary"></p-button> -->
-<p-dialog header="Location Detail" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '75vw'}" [maximizable]="true" [baseZIndex]="10000"
+<p-dialog header="Location Detail" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '90vw'}" [maximizable]="true" [baseZIndex]="10000"
     [draggable]="false">
   <div class="fixed">
     <p-card>
         <div class="p-grid">
             <div class="p-col">
                 <div class="box">
-                    {{ prevName }} <span><a href="javascript:;" (click)="prev()" [ngClass]="{'diableBtn': prevbtn}"><i class="pi pi-angle-left" ></i></a></span>
-                    <span><a href="javascript:;" (click)="next()" [ngClass]="{'diableBtn': nextbtn}"><i class="pi pi-angle-right" ></i></a></span>
+                    <!-- {{ prevName }} <span><a href="javascript:;" (click)="prev()" [ngClass]="{'diableBtn': prevbtn}"><i class="pi pi-angle-left" ></i></a></span>
+                    <span><a href="javascript:;" (click)="next()" [ngClass]="{'diableBtn': nextbtn}"><i class="pi pi-angle-right" ></i></a></span> -->
+                    {{ prevName }}
+                    <span><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span>
+                    <span><a href="javascript:;" (click)="next()"><i class="pi pi-angle-right" ></i></a></span>
                     {{ nextName }}
                 </div>
             </div>
@@ -21,125 +24,139 @@
             </div>
         </div>
     </p-card>
-</div>
-<div style="padding-top: 75px">
-    <p-table [value]="selectedData" styleClass="p-datatable-gridlines">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Company</th>
-                <th>Description</th>
-                <th>Address 1</th>
-                <th>City</th>
-                <th>S-P-C</th>
-                <th>Reference #</th>
-            </tr>
-        </ng-template>
-            <ng-template pTemplate="body" let-customer>
-            <tr>
-                <td> {{ customer?.name }}</td>
-                <td> {{ customer?.type }}</td>
-                <td> {{ customer?.origin }}</td>
-                <td> {{ customer?.description }}</td>
-                <td> {{ customer?.address }}</td>
-                <td> {{ customer?.city }}</td>
-                <td> {{ customer?.spc }}</td>
-                <td> {{ customer?.reference }}</td>
-            </tr>
-        </ng-template>
-    </p-table>
-</div>
-<div>
-        <p-tabView>
-            <p>* Required fields marked in red </p>
-            <p-tabPanel header="General & Address">
-                <div class="p-grid">
-                    <div class="p-col">
-                        <div class="box">
-                            <p-panel header="General">
-                                <div class="p-fluid" [formGroup]="generalForm">
-                                    <div class="p-field">
-                                      <label for="firstname1">Location Reference / ERP Id #:*</label>
-                                      <input id="firstname1" type="text" pInputText  formControlName="locationRef" />
-                                    </div>
-                                    <div class="p-field">
-                                      <label for="lastname1">Location Name:*</label>
-                                      <input id="lastname1" type="text" pInputText  formControlName="locationName" />
-                                    </div>
-                                    <div class="p-field">
-                                        <label for="state">Location Type:*</label>
-                                        <p-dropdown
-                                          inputId="state"
-                                          placeholder="Select"
-                                          optionLabel="name"
-                                          formControlName="locationType"
-                                        ></p-dropdown>
-                                      </div>
-                                      <div class="p-field">
-                                        <label for="state">Location Group:*</label>
-                                        <p-dropdown
-                                          inputId="state"
-                                          placeholder="Select"
-                                          optionLabel="name"
-                                          formControlName="locationGroup"
-                                        ></p-dropdown>
-                                      </div>
-                                  </div>
-                            </p-panel>
-                        </div>
-                    </div>
-                    <div class="p-col">
-                        <div class="box">
-                            <p-panel header="Address / Lat Lon">
-                                <div class="p-fluid" [formGroup]="addressForm">
-                                    <div class="p-field">
-                                      <label for="firstname1">Location Reference / ERP Id #:*</label>
-                                      <input id="firstname1" type="text" pInputText formControlName="locationRef" />
-                                    </div>
-                                    <div class="p-field">
-                                      <label for="lastname1">Location Name:*</label>
-                                      <input id="lastname1" type="text" pInputText formControlName="locationName" />
-                                    </div>
-                                    <div class="p-field">
-                                        <label for="state">Location Type:*</label>
-                                        <p-dropdown
-                                          inputId="state"
-                                          placeholder="Select"
-                                          optionLabel="name"
-                                          formControlName="locationType"
-                                        ></p-dropdown>
-                                      </div>
-                                      <div class="p-field">
-                                        <label for="state">Location Group:*</label>
-                                        <p-dropdown
-                                          inputId="state"
-                                          placeholder="Select"
-                                          optionLabel="name"
-                                          formControlName="locationGroup"
-                                        ></p-dropdown>
-                                      </div>
-                                  </div>
-                            </p-panel>
-                        </div>
-                    </div>
-                    <div class="p-col">
-                        <div class="box">
-                        <p-panel header="Map">
-                            <!-- <div #map style="width:100%;height:400px"></div> -->
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.949757477627!2d-75.58971974942935!3d39.94251349216686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f11abe2aafc7%3A0xf33e278ee256fe82!2s300%20Willowbrook%20Ln%2C%20West%20Chester%2C%20PA%2019382!5e0!3m2!1sen!2sus!4v1615696624928!5m2!1sen!2sus" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </p-panel>
-                        </div>
-                    </div>
-                </div>
+    </div>
+    <div style="padding-top: 115px">
+        <p-table [value]="selectedData" styleClass="p-datatable-gridlines">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Asset Name</th>
+                    
+                    <th>Origin</th>
+                    
+                    <th>Destination</th>
+                    
+                    <th>Departure</th>
+                    <th>ETA</th>
+                    <th>Arrival Status</th>
+                    <th>Location</th>
+                </tr>
+            </ng-template>
+                <ng-template pTemplate="body" let-customer>
+                <tr>
+                    <td>
+                        {{customer?.Asset}}
+                    </td>
+                    
+                    <td>{{customer?.Origin}}</td>
+            
+                    <td>{{customer?.Destination}}</td>
                 
-            </p-tabPanel>
-            <p-tabPanel header="Codes">
-                <p>Codes</p>
-            </p-tabPanel>
-            <p-tabPanel header="Contacts">
-                <p>Contacts</p>    
-            </p-tabPanel>
-        </p-tabView>
-</div>
+                    <td>
+                        {{customer?.DepartureDate}}
+                    </td>
+                    <td>
+                        {{customer?.EtaDate}}
+                    </td>
+                    <td>
+                        {{customer?.ArrivalStatus }}
+                    </td>
+                    <td>
+                        {{customer?.LocationName}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div>
+            <p-tabView>
+                <p>* Required fields marked in red </p>
+                <p-tabPanel header="General & Address">
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <div class="box">
+                                <p-panel header="General">
+                                    <div class="p-fluid" [formGroup]="generalForm">
+                                        <div class="p-field">
+                                        <label for="firstname1">Location Reference / ERP Id #:*</label>
+                                        <input id="firstname1" type="text" pInputText  formControlName="locationRef" />
+                                        </div>
+                                        <div class="p-field">
+                                        <label for="lastname1">Location Name:*</label>
+                                        <input id="lastname1" type="text" pInputText  formControlName="locationName" />
+                                        </div>
+                                        <div class="p-field">
+                                            <label for="state">Location Type:*</label>
+                                            <p-dropdown
+                                            inputId="state"
+                                            placeholder="Select"
+                                            optionLabel="name"
+                                            formControlName="locationType"
+                                            ></p-dropdown>
+                                        </div>
+                                        <div class="p-field">
+                                            <label for="state">Location Group:*</label>
+                                            <p-dropdown
+                                            inputId="state"
+                                            placeholder="Select"
+                                            optionLabel="name"
+                                            formControlName="locationGroup"
+                                            ></p-dropdown>
+                                        </div>
+                                    </div>
+                                </p-panel>
+                            </div>
+                        </div>
+                        <div class="p-col">
+                            <div class="box">
+                                <p-panel header="Address / Lat Lon">
+                                    <div class="p-fluid" [formGroup]="addressForm">
+                                        <div class="p-field">
+                                        <label for="firstname1">Location Reference / ERP Id #:*</label>
+                                        <input id="firstname1" type="text" pInputText formControlName="locationRef" />
+                                        </div>
+                                        <div class="p-field">
+                                        <label for="lastname1">Location Name:*</label>
+                                        <input id="lastname1" type="text" pInputText formControlName="locationName" />
+                                        </div>
+                                        <div class="p-field">
+                                            <label for="state">Location Type:*</label>
+                                            <p-dropdown
+                                            inputId="state"
+                                            placeholder="Select"
+                                            optionLabel="name"
+                                            formControlName="locationType"
+                                            ></p-dropdown>
+                                        </div>
+                                        <div class="p-field">
+                                            <label for="state">Location Group:*</label>
+                                            <p-dropdown
+                                            inputId="state"
+                                            placeholder="Select"
+                                            optionLabel="name"
+                                            formControlName="locationGroup"
+                                            ></p-dropdown>
+                                        </div>
+                                    </div>
+                                </p-panel>
+                            </div>
+                        </div>
+                        <div class="p-col">
+                            <div class="box">
+                            <p-panel header="Map">
+                                <!-- <div #map style="width:100%;height:400px"></div> -->
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.949757477627!2d-75.58971974942935!3d39.94251349216686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f11abe2aafc7%3A0xf33e278ee256fe82!2s300%20Willowbrook%20Ln%2C%20West%20Chester%2C%20PA%2019382!5e0!3m2!1sen!2sus!4v1615696624928!5m2!1sen!2sus" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </p-panel>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </p-tabPanel>
+                <p-tabPanel header="Codes">
+                    <p>Codes</p>
+                </p-tabPanel>
+                <p-tabPanel header="Contacts">
+                    <p>Contacts</p>    
+                </p-tabPanel>
+            </p-tabView>
+    </div>
 </p-dialog>

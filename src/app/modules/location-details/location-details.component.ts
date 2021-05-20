@@ -70,18 +70,18 @@ export class LocationDetailsComponent implements OnInit {
       if(this.customers.length === 1) {
         this.nextbtn = true;
         this.prevbtn = true;
-        this.nextName = resp.list[resp.index].name;
+        this.nextName = resp.list[resp.index].Asset;
         this.prevName = '';
       } else if(this.nextData === 0) {
         this.nextbtn = false;
         this.prevbtn = true;
-        this.nextName = resp.list[resp.index + 1].name;
-        this.prevName = resp.list[resp.index].name;
+        this.nextName = resp.list[resp.index].Asset;
+        this.prevName = resp.list[this.customers.length - 1].Asset;
       } else if(this.nextData + 1 === this.customers.length) {
         this.nextbtn = true;
         this.prevbtn = false;
-        this.nextName = resp.list[resp.index].name;
-        this.prevName = resp.list[resp.index-1].name;
+        this.nextName = resp.list[resp.index].Asset;
+        this.prevName = resp.list[resp.index-1].Asset;
       } else {
         this.nextbtn = false;
         this.prevbtn = false;
@@ -113,21 +113,27 @@ export class LocationDetailsComponent implements OnInit {
   }
 
   prev() {
-    if(this.nextData > 0) {
+    // if(this.nextData > 0) {
       this.selectedData = [];
-      this.nextData--;
-      this.selectedData.push(this.customers[this.nextData]);
-      this.prevName = this.customers[this.nextData].name;
-
+      
       if(this.nextData === 0) {
-        this.nextbtn = false;
-        this.prevbtn = true;
+        this.nextData = this.customers.length - 1;
+        this.prevName = this.customers[this.nextData - 1].Asset;
+        this.nextName = this.customers[this.nextData].Asset;
+        this.selectedData.push(this.customers[this.nextData]);
       } else {
         this.nextbtn = false;
-        this.prevName = this.customers[this.nextData - 1].name;
-        this.nextName = this.customers[this.nextData].name;
+        this.nextData--;
+        if(this.nextData === 0) {
+          this.prevName = this.customers[this.customers.length - 1].Asset;
+        } else {
+          this.prevName = this.customers[this.nextData - 1].Asset;
+        }
+        
+        this.nextName = this.customers[this.nextData].Asset;
+        this.selectedData.push(this.customers[this.nextData]);
       }
-    }
+    // }
   }
 
   next() {
@@ -139,10 +145,12 @@ export class LocationDetailsComponent implements OnInit {
       if(this.nextData+1 === this.customers.length) {
         this.nextbtn = true;
         this.prevbtn = false;
+        this.prevName = this.customers[this.nextData - 1].Asset;
+        this.nextName = this.customers[this.nextData].Asset;
       } else {
         this.prevbtn = false;
-        this.prevName = this.customers[this.nextData].name;
-        this.nextName = this.customers[this.nextData + 1].name;
+        this.prevName = this.customers[this.nextData - 1].Asset;
+        this.nextName = this.customers[this.nextData].Asset;
       }
     }
   }
