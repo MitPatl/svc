@@ -35,6 +35,11 @@
   color: #008F96;
   background: none;
 }
+.p-button.p-button-secondary.p-button-outlined:enabled:hover, .p-buttonset.p-button-secondary > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined:enabled:hover {
+  color: #008F96;
+  border: 2px solid;
+  margin: -1px;
+}
 
 /* Input text */
 .p-inputtext {

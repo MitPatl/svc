@@ -1,12 +1,12 @@
-<div style="padding: 4px; width: 200px;">
-    <div style="font-weight: bold;">Wagon Filter</div>
+<div>
+    <div class="svc-header">Wagon Filter</div>
     <div [formGroup]="searchForm">
       <p-chips  formControlName="trackNumber" field="carId" ngDefaultControl 
       (paste)="handlePaste($event)" (onAdd)="onAddSearch($event)" class="chipHeight" 
       [addOnTab]="true" [addOnBlur]="true" (onRemove)="onRemove($event)"></p-chips>
       <div *ngIf="noSearchData" class="redError">{{ noSearchData }} does not exist</div>
-      <button (click)="apply()">Apply</button>
-      <button (click)="clear()">Clear</button>
+      <button pButton (click)="apply()" class="p-button-secondary p-button" label="Apply"></button>
+      <button pButton (click)="clear()" class="p-button-outlined p-button-secondary" label="Clear"></button>
       <!-- <textarea
         style="margin: 4px 0 4px 0;"
         type="text"

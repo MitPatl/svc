@@ -1,5 +1,10 @@
 @import "./variabls.scss";
 
+.p-dialog .p-dialog-content {
+    background: $panel-gray;
+    color: #212529;
+}
+
 .p-dialog .p-dialog-header {
     padding: .410rem;
     background: $panel-gray;
