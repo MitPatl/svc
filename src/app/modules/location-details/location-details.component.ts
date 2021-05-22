@@ -68,23 +68,22 @@ export class LocationDetailsComponent implements OnInit {
       this.customers = resp.list;
       this.nextData = resp.index;
       if(this.customers.length === 1) {
-        this.nextbtn = true;
-        this.prevbtn = true;
+        // this.nextbtn = true;
+        // this.prevbtn = true;
         this.nextName = resp.list[resp.index].Asset;
         this.prevName = '';
       } else if(this.nextData === 0) {
-        this.nextbtn = false;
-        this.prevbtn = true;
+        // this.nextbtn = false;
+        // this.prevbtn = true;
         this.nextName = resp.list[resp.index].Asset;
         this.prevName = resp.list[this.customers.length - 1].Asset;
       } else if(this.nextData + 1 === this.customers.length) {
-        this.nextbtn = true;
-        this.prevbtn = false;
+        // this.nextbtn = true;
+        // this.prevbtn = false;
         this.nextName = resp.list[resp.index].Asset;
         this.prevName = resp.list[resp.index-1].Asset;
       } else {
-        this.nextbtn = false;
-        this.prevbtn = false;
+        this.nextName = resp.list[resp.index].Asset;
       }
     })
   }
@@ -137,22 +136,22 @@ export class LocationDetailsComponent implements OnInit {
   }
 
   next() {
-    if(this.nextData + 1 < this.customers.length) {
+    //if(this.nextData + 1 < this.customers.length) {
       this.selectedData = [];
-      this.nextData++;
-      this.selectedData.push(this.customers[this.nextData]);
-
+      
       if(this.nextData+1 === this.customers.length) {
-        this.nextbtn = true;
-        this.prevbtn = false;
-        this.prevName = this.customers[this.nextData - 1].Asset;
+        this.nextData = 0;
+        //this.prevName = this.customers[this.nextData - 1].Asset;
         this.nextName = this.customers[this.nextData].Asset;
+        this.selectedData.push(this.customers[this.nextData]);
+
       } else {
-        this.prevbtn = false;
+        this.nextData++;
         this.prevName = this.customers[this.nextData - 1].Asset;
         this.nextName = this.customers[this.nextData].Asset;
+        this.selectedData.push(this.customers[this.nextData]);
       }
-    }
+    //}
   }
 
 }

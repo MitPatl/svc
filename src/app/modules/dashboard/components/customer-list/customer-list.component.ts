@@ -2383,7 +2383,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   }
 
   onRowSelect(event: any) {
-    let index = this.customers.findIndex((resp: any) => this.selectedCustomers.id === resp.id);
+    let index = this.customers.findIndex((resp: any) => this.selectedCustomers.Asset === resp.Asset);
     let obj = {
       index: index,
       list: this.customers
