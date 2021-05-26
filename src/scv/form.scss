@@ -41,6 +41,23 @@
   margin: -1px;
 }
 
+.p-button.p-button-outlined {
+  color: #008F96;
+}
+
+.p-button.p-button-outlined .pi.pi-chevron-left,
+.p-button.p-button-outlined .pi.pi-chevron-right {
+    font-size: 12px
+}
+
+.p-button-rounded.p-button-outlined.p-button.p-component.p-button-icon-only {
+    width: .25rem;
+    display: inline-flex;
+    vertical-align: middle;
+    padding: .65rem !important;
+    height: 1.25rem !important
+ }
+
 /* Input text */
 .p-inputtext {
     width: 100%;

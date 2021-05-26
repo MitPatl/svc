@@ -25,3 +25,14 @@
 .p-dialog .p-dialog-content {
     padding: 0.9375rem;
 }
+
+
+.overlay .p-card {
+    background: #E8E8E8;
+    box-shadow: 0 0;
+}
+
+.overlay .p-card .p-card-body,
+.overlay .p-card .p-card-content {
+    padding: 0
+}

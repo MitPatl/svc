@@ -1,7 +1,7 @@
 <!-- <p-button (click)="showMaximizableDialog()" label="Overlay" styleClass="p-button-secondary"></p-button> -->
 <p-dialog header="Location Detail" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '90vw'}" [maximizable]="true" [baseZIndex]="10000"
     [draggable]="false">
-  <div class="fixed">
+  <div class="fixed overlay mt-n2">
     <p-card>
         <div class="p-grid">
             <div class="p-col">
@@ -10,13 +10,15 @@
                     <span><a href="javascript:;" (click)="next()" [ngClass]="{'diableBtn': nextbtn}"><i class="pi pi-angle-right" ></i></a></span> -->
                     <div class="row">
                         <div class="col-1">
-                            <span><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span>
+                            <!-- <span><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span> -->
+                            <button href="javascript:;" (click)="prev()" pButton pRipple type="button" icon="pi pi-chevron-left" class="p-button-rounded p-button-outlined"></button>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 text-center mx-n4">
                             {{ nextName }}
                         </div>
                         <div class="col-1">
-                            <span><a href="javascript:;" (click)="next()"><i class="pi pi-angle-right" ></i></a></span>
+                            <!-- <span><a href="javascript:;" (click)="next()"><i class="pi pi-angle-right" ></i></a></span> -->
+                            <button href="javascript:;" (click)="next()" pButton pRipple type="button" icon="pi pi-chevron-right " class="p-button-rounded p-button-outlined"></button>
                         </div>
                     </div>
                     
@@ -35,7 +37,7 @@
         </div>
     </p-card>
     </div>
-    <div style="padding-top: 115px">
+    <div class="mt-4">
         <p-table [value]="selectedData" styleClass="p-datatable-gridlines">
             <ng-template pTemplate="header">
                 <tr>
