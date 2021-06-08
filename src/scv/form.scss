@@ -2,22 +2,27 @@
 /* Buttons */
 .p-button {
     padding: 0.125rem 1rem !important;
-    margin-right: .5rem !important
+    margin-right: .5rem !important;
+    background: #112326 !important;
+    border: 1px solid #112326 !important;
   }
 
   .p-button-label {
     font-size: 1rem;
     font-weight: 600;
+    color: #FFFFFF
 }
 
 .p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button {
-    background: #112326;
-    border: 1px solid #112326;
+    background: #7b8585 !important;
+    border: 1px solid #7b8585 !important;
 }
-
-.p-button.p-button-secondary:enabled:hover, .p-buttonset.p-button-secondary > .p-button:enabled:hover, .p-splitbutton.p-button-secondary > .p-button:enabled:hover {
-  background: #008F96;
-  border-color: #008F96;
+.p-button:enabled:hover,
+.p-button.p-button-secondary:enabled:hover,
+.p-buttonset.p-button-secondary > .p-button:enabled:hover,
+.p-splitbutton.p-button-secondary > .p-button:enabled:hover {
+  background: #008F96 !important;
+  border-color: #008F96 !important;
 }
 .p-button.p-button-secondary:enabled:focus, .p-buttonset.p-button-secondary > .p-button:enabled:focus, .p-splitbutton.p-button-secondary > .p-button:enabled:focus {
   box-shadow: 0 0;
@@ -27,8 +32,24 @@
   border-color: #008F96;
 }
 
-.p-button.p-button-text {
-  color: #000;
+.p-disabled, .p-component:disabled {
+  opacity: 0.35;
+}
+
+.p-component:disabled .p-button-label {
+  color: #CCC
+}
+
+.p-splitbutton .p-button-icon {
+  color: #fff;
+}
+
+// .p-button.p-button-text {
+//   color: #000;
+// }
+
+.p-splitbutton {
+  height: 30px
 }
 
 .p-button.p-button-text:enabled:hover {

@@ -10,15 +10,15 @@
                     <span><a href="javascript:;" (click)="next()" [ngClass]="{'diableBtn': nextbtn}"><i class="pi pi-angle-right" ></i></a></span> -->
                     <div class="row">
                         <div class="col-1">
-                            <!-- <span><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span> -->
-                            <button href="javascript:;" (click)="prev()" pButton pRipple type="button" icon="pi pi-chevron-left" class="p-button-rounded p-button-outlined"></button>
+                            <span class="previous-btn"><a href="javascript:;" (click)="prev()"><i class="pi pi-angle-left" ></i></a></span>
+                            <!-- <button href="javascript:;" (click)="prev()" pButton pRipple type="button" icon="pi pi-chevron-left" class="p-button-rounded p-button-outlined"></button> -->
                         </div>
-                        <div class="col-3 text-center mx-n4">
+                        <div class="col-3 text-center pt-1 mx-n4">
                             {{ nextName }}
                         </div>
                         <div class="col-1">
-                            <!-- <span><a href="javascript:;" (click)="next()"><i class="pi pi-angle-right" ></i></a></span> -->
-                            <button href="javascript:;" (click)="next()" pButton pRipple type="button" icon="pi pi-chevron-right " class="p-button-rounded p-button-outlined"></button>
+                            <span class="next-btn"><a href="javascript:;" (click)="next()"><i class="pi pi-angle-right" ></i></a></span>
+                            <!-- <button href="javascript:;" (click)="next()" pButton pRipple type="button" icon="pi pi-chevron-right " class="p-button-rounded p-button-outlined"></button> -->
                         </div>
                     </div>
                     
@@ -29,7 +29,7 @@
             <div class="p-col">
                 <div class="box float-right">
                         <p-button (click)="displayMaximizable=false" label="Cancel" styleClass="p-button-secondary"></p-button>
-                        <p-splitButton label="Save" (onClick)="save('info')" [model]="items" styleClass="p-button-secondary"></p-splitButton>
+                        <p-splitButton label="Save" (onClick)="save('info')" [model]="items"></p-splitButton>
                         <!-- <p-button (click)="displayMaximizable=false" label="Save" class="p-button-text" styleClass="p-button-secondary"></p-button> -->
                    
                 </div>

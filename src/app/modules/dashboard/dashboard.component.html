@@ -15,7 +15,41 @@
             <p>Layout</p>    
         </p-tabPanel>
         <p-tabPanel header="Buttons">
-            <p>Buttons</p>
+            <h5>Buttons</h5>
+                <!-- <div class="row">
+                    <div class="col-2">
+                        <button pButton type="button" label="Primary"></button>
+                    </div>
+                    <div class="col-10">
+                        <pre>
+                        <code><button pButton type="button" label="Primary">></button></code>
+                    </pre> </div>
+                     <button pButton type="button" label="Secondary" class="p-button-secondary"></button>
+                    <p-button label="Disabled" [disabled]="true"></p-button>
+                    
+                </div> -->
+                <div class="row col-12">
+                    <div class="col">
+                        <p-panel header="Primat Button">
+                            <button pButton type="button" label="Primary"></button>
+                        </p-panel>
+                    </div>
+                    <div class="col">
+                        <p-panel header="Secondary Button">
+                            <button pButton type="button" label="Secondary" class="p-button-secondary"></button>
+                        </p-panel>
+                    </div>
+                    <div class="col">
+                        <p-panel header="Disabled">
+                            <p-button label="Disabled" [disabled]="true"></p-button>
+                        </p-panel>
+                    </div>
+                    <div class="col">
+                        <p-panel header="Menu Button">
+                            <p-splitButton label="Save"></p-splitButton>
+                        </p-panel>
+                    </div>
+                </div>
         </p-tabPanel>
         <p-tabPanel header="Form-UI">
             <p>Form UI</p>    
@@ -33,7 +67,7 @@
             </div>    
         </p-tabPanel>
     </p-tabView>
-</div>
+</div> 
 
 <div class="container">
     <div class="row">
