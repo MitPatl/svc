@@ -1,10 +1,13 @@
 <nav class="navbar navbar-expand-lg">
     <div class="row clearMargin">
-        <div class="col-md-8 col-sm-7 col-xs-6">
+        <div class="col-9">
             <div class="header-logo-container">
                 <img src="../../../assets/images/scv-logo.svg" class="navbar-brand clickable">
                 <div style="clear: both;"></div>
             </div>
+        </div>
+        <div class="col-3 header-title">
+            <span>Style Guide</span>
         </div>
     </div>
 </nav>
@@ -15,7 +18,21 @@
             <p>Layout</p>    
         </p-tabPanel>
         <p-tabPanel header="Buttons">
-            <h5>Buttons</h5>
+            <div class="row">
+                <div class="col-6">
+                    <h5>Buttons</h5>
+                </div>
+               
+                <div class="col-6 row">
+                    <div class="col"><h6>Last updated: Time</h6></div>
+                    <div class="col"><h6>Approved By: Heidi</h6></div>
+                </div>
+            </div>
+            <p-divider></p-divider>
+            <div class="row col mb-3">
+                <span>Button is an extension to standard button element with icons and theming.</span>
+                Button is either applies as a component using p-button element or a directive using pButton attribute. Directive enhances an existing button whereas p-button is an element on its own.
+            </div>
                 <!-- <div class="row">
                     <div class="col-2">
                         <button pButton type="button" label="Primary"></button>
@@ -28,27 +45,78 @@
                     <p-button label="Disabled" [disabled]="true"></p-button>
                     
                 </div> -->
-                <div class="row col-12">
-                    <div class="col">
-                        <p-panel header="Primat Button">
-                            <button pButton type="button" label="Primary"></button>
-                        </p-panel>
+                <div class="row mb-5 ml-1">
+                    <div class="row col mb-5">
+                        <button pButton pRipple type="button" label="Primary"></button>
+                        <button pButton pRipple type="button" label="Secondary" class="p-button-secondary"></button>
+                        <p-button label="Disabled" [disabled]="true"></p-button>
+                        <p-splitButton label="Save"></p-splitButton>
                     </div>
-                    <div class="col">
-                        <p-panel header="Secondary Button">
-                            <button pButton type="button" label="Secondary" class="p-button-secondary"></button>
-                        </p-panel>
-                    </div>
-                    <div class="col">
+                    <div class="row">
+                        <div class="col-6">
+                            <p-panel header="Primary Button">
+                                <div>
+                                    <button pButton type="button" label="Primary"></button>
+                                </div>
+                                <div class="row">
+                                    <pre class=" language-markup">
+                                        <code class=" language-markup">
+                                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">pButton</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Primary<span class="token punctuation">"</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+                                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p-button</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Click<span class="token punctuation">"</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p-button</span><span class="token punctuation">&gt;</span></span>
+                                        </code>
+                                    </pre>
+                            </div>
+                            </p-panel>
+                        </div>
+                        <div class="col-6">
+                            <p-panel header="Secondary Button">
+                                <div>
+                                    <button pButton type="button" label="Secondary" class="p-button-secondary"></button>
+                                </div>
+                                <div class="row">
+                                    <pre class=" language-markup">
+                                        <code class=" language-markup">
+                                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">pButton</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Secondary<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p-button-secondary<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </p-panel>
+                        </div>
+                    </div>  
+                </div>
+                <div class="row mb-5">
+                    <div class="col-6">
                         <p-panel header="Disabled">
-                            <p-button label="Disabled" [disabled]="true"></p-button>
+                            <div>
+                                <p-button label="Disabled" [disabled]="true"></p-button>
+                            </div>
+                            <div class="row">
+                                <pre class=" language-markup">
+                                    <code class=" language-markup">
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p-button</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Disabled<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    </code>
+                                </pre>
+                            </div>
+                            
                         </p-panel>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <p-panel header="Menu Button">
-                            <p-splitButton label="Save"></p-splitButton>
+                            <div>
+                                <p-splitButton label="Save"></p-splitButton>
+                            </div>
+                            <div class="row">
+                                <pre class=" language-markup">
+                                    <code class=" language-markup">
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p-button</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Disabled<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    </code>
+                                </pre>
+                            </div>
                         </p-panel>
                     </div>
+                </div>
+                <div class="row">
+                        <span class="button-img"></span> 
                 </div>
         </p-tabPanel>
         <p-tabPanel header="Form-UI">

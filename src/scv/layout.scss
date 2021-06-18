@@ -69,3 +69,77 @@ body, .p-component {
 .side-nav .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
     width: 100%
 }
+
+
+:not(pre)>code[class*=language-], pre[class*=language-] {
+    background-color: #fdfdfd;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+pre[class*=language-] {
+    margin: 0.5em 0;
+    overflow: visible;
+    padding: 0;
+    line-height: normal !important;
+    word-wrap: nomal;
+    white-space: unset;
+}
+
+code[class*=language-], pre[class*=language-] {
+    color: #000;
+    background: none;
+    font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+    font-size: 1em;
+    text-align: left;
+}
+.p-component, .p-component * {
+    box-sizing: border-box;
+}
+* {
+    box-sizing: border-box;
+}
+* {
+    box-sizing: border-box;
+}
+pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0px;
+}
+
+code[class*=language] {
+    max-height: inherit;
+    height: inherit;
+    padding: 0 1em;
+    display: block;
+    overflow: auto;
+}
+
+
+pre[class*=language-] code .token.attr-name, pre[class*=language-] code .token.attr-string, pre[class*=language-] code .token.keyword, pre[class*=language-] code .token.tag {
+    color: #2196f3!important;
+}
+.token.boolean, .token.constant, .token.deleted, .token.function-name, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #c92c2c;
+}
+
+pre[class*=language-] code .token.attr-value {
+    color: #4caf50!important;
+}
+
+.token.atrule, .token.attr-value, .token.class-name, .token.keyword {
+    color: #1990b8;
+}
+
+.p-divider.p-divider-horizontal {
+    margin: 0 0 1rem 0;
+}
+
+.header-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+    font-style: italic;
+}
