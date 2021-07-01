@@ -5,6 +5,7 @@ import { debounceTime } from 'rxjs/operators';
 import { CarFilter } from 'src/app/shared-utilities/filters/car-filter/car-filter.component';
 import { SharedService } from 'src/app/shared-utilities/shared.service';
 import 'ag-grid-enterprise';
+import { DateFilterComponent } from 'src/app/shared-utilities/filters/date-filter/date-filter.component';
 
 @Component({
   selector: 'app-customer-list',
@@ -23,6 +24,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   public frameworkComponents: any;
   public defaultColDef: any;
   public subscriptions: any = new Subscription();
+  public gridOptions: any;
 
   constructor(
     public sharedService: SharedService
@@ -82,7 +84,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "Venice",
               "LocationState": "IL",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T13:45:10",
+              "DepartureDate": "2021-04-16T13:45:10",
               "Duration": "20512.14:00:00",
               "EtaDate": "2021-04-21T07:08:07",
               "EtaRailroadDate": "2021-04-16T12:00:00",
@@ -94,7 +96,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "MO",
               "TrainID": "",
               "ClmCode": "P",
-              "ClmSightingDate": "2021-04-15T13:37:00",
+              "ClmSightingDate": "2021-04-16T13:37:00",
               "ClmCodeDescription": "Departure",
               "CareOfParty": null,
               "RailRoad": "NS",
@@ -119,9 +121,9 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "Crescent Park",
               "LocationState": "KY",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T10:07:04",
+              "DepartureDate": "2021-04-17T10:07:04",
               "Duration": "00:00:00",
-              "EtaDate": "2021-04-15T10:33:39",
+              "EtaDate": "2021-04-17T10:33:39",
               "EtaRailroadDate": "2021-04-19T23:00:00",
               "ArrivalStatus": "Late",
               "Latitude": 39.038341522217,
@@ -131,7 +133,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "KY",
               "TrainID": "",
               "ClmCode": "A",
-              "ClmSightingDate": "2021-04-15T11:06:00",
+              "ClmSightingDate": "2021-04-17T11:06:00",
               "ClmCodeDescription": "Arrival at an In - transit",
               "CareOfParty": "FIRESTONE BUILDING PRODUCTS CO",
               "RailRoad": "NS",
@@ -156,7 +158,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "El Dorado",
               "LocationState": "KS",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T09:24:22",
+              "DepartureDate": "2021-04-18T09:24:22",
               "Duration": "17999.21:30:00",
               "EtaDate": "2021-04-20T14:57:40.5",
               "EtaRailroadDate": "2021-04-22T01:00:00",
@@ -168,7 +170,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "LA",
               "TrainID": "",
               "ClmCode": "P",
-              "ClmSightingDate": "2021-04-15T14:40:00",
+              "ClmSightingDate": "2021-04-18T14:40:00",
               "ClmCodeDescription": "Departure",
               "CareOfParty": "RUBICON LLC",
               "RailRoad": "BNSF",
@@ -193,7 +195,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "El Dorado",
               "LocationState": "KS",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T09:24:22",
+              "DepartureDate": "2021-04-19T09:24:22",
               "Duration": "42122.05:00:00",
               "EtaDate": "2021-04-27T07:46:10",
               "EtaRailroadDate": "2021-04-22T01:00:00",
@@ -205,7 +207,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "LA",
               "TrainID": "",
               "ClmCode": "P",
-              "ClmSightingDate": "2021-04-15T14:40:00",
+              "ClmSightingDate": "2021-04-19T14:40:00",
               "ClmCodeDescription": "Departure",
               "CareOfParty": "RUBICON LLC",
               "RailRoad": "BNSF",
@@ -230,9 +232,9 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "Schofield",
               "LocationState": "WI",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T09:20:41",
+              "DepartureDate": "2021-04-20T09:20:41",
               "Duration": "00:00:00",
-              "EtaDate": "2021-04-15T15:05:04",
+              "EtaDate": "2021-04-20T15:05:04",
               "EtaRailroadDate": "2021-04-24T01:00:00",
               "ArrivalStatus": "Late",
               "Latitude": 44.928134918213,
@@ -242,7 +244,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "LA",
               "TrainID": "L58881",
               "ClmCode": "P",
-              "ClmSightingDate": "2021-04-15T15:00:00",
+              "ClmSightingDate": "2021-04-20T15:00:00",
               "ClmCodeDescription": "Departure",
               "CareOfParty": null,
               "RailRoad": "CN",
@@ -267,9 +269,9 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "Provo",
               "LocationState": "UT",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T05:47:28",
+              "DepartureDate": "2021-04-21T05:47:28",
               "Duration": "00:00:00",
-              "EtaDate": "2021-04-15T15:03:35",
+              "EtaDate": "2021-04-21T15:03:35",
               "EtaRailroadDate": "2021-04-30T01:00:00",
               "ArrivalStatus": "Late",
               "Latitude": 40.223342895508,
@@ -279,7 +281,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "LA",
               "TrainID": "RPWR31",
               "ClmCode": "A",
-              "ClmSightingDate": "2021-04-15T09:28:00",
+              "ClmSightingDate": "2021-04-21T09:28:00",
               "ClmCodeDescription": "Arrival at an In - transit",
               "CareOfParty": "RUBICON LLC",
               "RailRoad": "BNSF",
@@ -304,9 +306,9 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "Convent",
               "LocationState": "LA",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T03:04:52",
+              "DepartureDate": "2021-04-22T03:04:52",
               "Duration": "111.08:00:00",
-              "EtaDate": "2021-04-15T07:17:06",
+              "EtaDate": "2021-04-22T07:17:06",
               "EtaRailroadDate": "2021-04-16T13:00:00",
               "ArrivalStatus": "-",
               "Latitude": 30.07684135437,
@@ -316,7 +318,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "LA",
               "TrainID": "L51671",
               "ClmCode": "A",
-              "ClmSightingDate": "2021-04-15T07:01:00",
+              "ClmSightingDate": "2021-04-22T07:01:00",
               "ClmCodeDescription": "Arrival at an In - transit",
               "CareOfParty": "RUBICON LLC",
               "RailRoad": "CN",
@@ -341,9 +343,9 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "LocationName": "Convent",
               "LocationState": "LA",
               "TripStatus": "Enroute",
-              "DepartureDate": "2021-04-15T03:04:46",
+              "DepartureDate": "2021-04-23T03:04:46",
               "Duration": "129.06:30:00",
-              "EtaDate": "2021-04-15T07:24:52.5",
+              "EtaDate": "2021-04-23T07:24:52.5",
               "EtaRailroadDate": "2021-04-16T13:00:00",
               "ArrivalStatus": "-",
               "Latitude": 30.079290390015,
@@ -353,7 +355,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
               "WaybillDestinationState": "LA",
               "TrainID": "L51671",
               "ClmCode": "A",
-              "ClmSightingDate": "2021-04-15T07:01:00",
+              "ClmSightingDate": "2021-04-123T07:01:00",
               "ClmCodeDescription": "Arrival at an In - transit",
               "CareOfParty": "RUBICON LLC",
               "RailRoad": "CN",
@@ -2320,7 +2322,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       { headerName: 'O', field: 'OriginState', width: '130px' },
       { headerName: 'Destination', field: 'Destination', width: '100px'},
       { headerName: 'D', field: 'DestinationState', width: '150px' },
-      { headerName: 'Departure', field: 'DepartureDate' },
+      { headerName: 'Departure', field: 'DepartureDate' , filter: 'dateFilter'},
       { headerName: 'ETA Predicted', field: 'EtaDate', width: '100px'},
       { headerName: 'Arrival Status', field: 'ArrivalStatus'},
       { headerName: 'Code', field: 'ClmCode', width: '100px'},
@@ -2341,12 +2343,19 @@ export class CustomerListComponent implements OnInit, OnDestroy {
     };
 
     this.frameworkComponents = {
-      carFilter: CarFilter
+      carFilter: CarFilter,
+      dateFilter: DateFilterComponent
     };
 
-    this.subscriptions = this.sharedService.searchSubject.subscribe(searchTextValue => {
+    this.subscriptions.add(this.sharedService.searchSubject.subscribe(searchTextValue => {
         this.filterCarData(searchTextValue);
-      });
+      })
+    );
+
+    this.subscriptions.add(this.sharedService.searchDateSubject.subscribe(searchTextValue => {
+      this.filterDateData(searchTextValue);
+    })
+  );
   }
 
   filterCarData(data: any) {
@@ -2379,6 +2388,18 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       }
 
       this.sharedService.searchDataNotExist.next(doesNotExist);
+    }
+  }
+
+  filterDateData(data: any){
+    if(data){
+      let filteredData = this.customers.filter((item: any) => {
+        return new Date(item.DepartureDate).getTime() >= new Date(data[0]).getTime() &&
+               new Date(item.DepartureDate).getTime() <= new Date(data[1]).getTime();
+      });
+      this.customersData = filteredData;
+    } else {
+      this.customersData = this.customers;
     }
   }
 

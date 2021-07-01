@@ -1,0 +1,13 @@
+<div>
+    <div class="svc-header">Select Date Range</div>
+    <div [formGroup]="searchForm">
+        <input type="date" formControlName="fromDate" />
+      to
+      <input type="date" formControlName="toDate" />
+      <div *ngIf="noSearchData" class="redError">Please select date range</div>
+      <div class="float-right mb-2">
+        <button pButton (click)="clear()" class="p-button-secondary" label="Clear"></button>
+        <button pButton (click)="apply()" class="p-button" label="Apply"></button>
+      </div>
+    </div>
+  </div>

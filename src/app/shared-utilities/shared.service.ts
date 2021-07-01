@@ -10,6 +10,7 @@ export class SharedService {
   public reqHeaders: HttpHeaders = new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json');
   public fleetArchiveData = new BehaviorSubject<any>(null);
   public searchSubject: Subject<string> = new Subject();
+  public searchDateSubject: Subject<any> = new Subject();
   public searchDataNotExist: Subject<any> = new Subject();
 
   public selectedCustomer: Subject<any> = new Subject();

@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CarFilter } from './filters/car-filter/car-filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { DateFilterComponent } from './filters/date-filter/date-filter.component';
 
 
 
 @NgModule({
   declarations: [
-    CarFilter
+    CarFilter,
+    DateFilterComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
     PrimeNgModule
   ],
   exports: [
-    CarFilter
+    CarFilter,
+    DateFilterComponent
   ]
 })
 export class SharedUtilitiesModule { }
