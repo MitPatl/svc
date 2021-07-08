@@ -1,9 +1,9 @@
 <div>
     <div class="svc-header">Select Date Range</div>
     <div [formGroup]="searchForm">
-        <input type="date" formControlName="fromDate" />
+        <input type="datetime-local" formControlName="fromDate" step="2" /> 
       to
-      <input type="date" formControlName="toDate" />
+      <input type="datetime-local" formControlName="toDate"  step="2"/>
       <div *ngIf="noSearchData" class="redError">Please select date range</div>
       <div class="float-right mb-2">
         <button pButton (click)="clear()" class="p-button-secondary" label="Clear"></button>
