@@ -36,7 +36,9 @@ export class DateFilterComponent implements IDateAngularComp {
 
     this.searchForm = this.fb.group({
       fromDate: this.fb.control(''),
-      toDate: this.fb.control('')
+      toDate: this.fb.control(''),
+      fromTime: this.fb.control(''),
+      toTime: this.fb.control('')
     })
 
     this.searchDateSubject.pipe(
@@ -106,10 +108,23 @@ export class DateFilterComponent implements IDateAngularComp {
 
   apply() {
     let range = [];
-    if(this.searchForm.controls.fromDate.value && this.searchForm.controls.toDate.value) {
+    if(this.searchForm.controls.fromDate.value || this.searchForm.controls.toDate.value) {
       this.noSearchData = false;
-      range.push(this.searchForm.controls.fromDate.value);
-      range.push(this.searchForm.controls.toDate.value);
+      let fromTime = this.searchForm.controls.fromTime.value ? ' ' + new Date(this.searchForm.controls.fromTime.value).toLocaleTimeString() : '';
+      let toTime = this.searchForm.controls.toTime.value ? ' ' + new Date(this.searchForm.controls.toTime.value).toLocaleTimeString() : '';
+      range.push(this.sharedService.formatDisplayDate(this.searchForm.controls.fromDate.value));
+      if(this.searchForm.controls.fromDate.value) {
+        range.push(fromTime);
+      } else {
+        range.push('');
+      }
+      
+      range.push(this.sharedService.formatDisplayDate(this.searchForm.controls.toDate.value));
+      if(this.searchForm.controls.toDate.value) {
+        range.push(toTime);
+      } else {
+        range.push('');
+      }
       this.searchDateSubject.next(range);
     } else {
       this.noSearchData = true;
@@ -119,6 +134,8 @@ export class DateFilterComponent implements IDateAngularComp {
     this.rowData = [];
     this.searchForm.controls.fromDate.patchValue('');
     this.searchForm.controls.toDate.patchValue('');
+    this.searchForm.controls.fromTime.patchValue('');
+    this.searchForm.controls.toTime.patchValue('');
     let range = '';
     
     this.searchDateSubject.next(range);

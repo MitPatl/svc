@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,16 @@ export class SharedService {
   getCustomerList(): Observable<any> {
     let url = '../../assets/customer.json';
     return this.http.get(url, { headers: this.reqHeaders });
+  }
+
+  public formatDisplayDate(value: string|any[] = []): string {
+    let date = moment(value);
+
+    if (date.isValid()) {
+
+     return date.format('yyyy/MM/DD');
+    }
+
+    return '';
   }
 }

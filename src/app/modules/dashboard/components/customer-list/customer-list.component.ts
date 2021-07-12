@@ -2393,10 +2393,45 @@ export class CustomerListComponent implements OnInit, OnDestroy {
 
   filterDateData(data: any){
     if(data){
-      let filteredData = this.customers.filter((item: any) => {
-        return new Date(item.DepartureDate).getTime() >= new Date(data[0]).getTime() &&
-               new Date(item.DepartureDate).getTime() <= new Date(data[1]).getTime();
-      });
+      let filteredData = [];
+      if(data[0] && data[1] === '' && data[2] === '' && data[3] === '') {
+       filteredData = this.customers.filter((item: any) => {
+          return new Date (new Date(item.DepartureDate).toLocaleDateString()).getTime() === new Date(data[0]).getTime()
+        });
+      } else if(data[0] && data[1] && data[2] === '' && data[3] === '') {
+        filteredData = this.customers.filter((item: any) => {
+           return new Date(item.DepartureDate).getTime() === new Date(data[0] + ' ' + data[1]).getTime()
+         });
+       } else if(data[0] && data[1] === '' && data[2] && data[3] === '') {
+        filteredData = this.customers.filter((item: any) => {
+          return new Date (new Date(item.DepartureDate).toLocaleDateString()).getTime() >= new Date(data[0]).getTime() &&
+          new Date (new Date(item.DepartureDate).toLocaleDateString()).getTime() <= new Date(data[2]).getTime();
+         });
+       } else if(data[0] && data[1] && data[2] && data[3] === '') {
+        filteredData = this.customers.filter((item: any) => {
+          return new Date(item.DepartureDate).getTime() >= new Date(data[0] + ' ' + data[1]).getTime() &&
+          new Date (new Date(item.DepartureDate).toLocaleDateString()).getTime() <= new Date(data[2]).getTime();
+         });
+       } else if(data[0] === '' && data[1] === ''  && data[2] && data[3] === '' ) {
+       filteredData = this.customers.filter((item: any) => {
+        return new Date (new Date(item.DepartureDate).toLocaleDateString()).getTime() === new Date(data[2]).getTime()
+        });
+      } else if(data[0] === '' && data[1] === '' && data[2] && data[3]) {
+        filteredData = this.customers.filter((item: any) => {
+           return new Date(item.DepartureDate).getTime() === new Date(data[2] + ' ' + data[3]).getTime()
+         });
+       } else if(data[0] && data[1] === '' && data[2] && data[3]) {
+        filteredData = this.customers.filter((item: any) => {
+          return new Date (new Date(item.DepartureDate).toLocaleDateString()).getTime() >= new Date(data[0]).getTime() &&
+          new Date(item.DepartureDate).getTime() <= new Date(data[2] + ' ' + data[3]).getTime();
+         });
+       } else {
+       filteredData = this.customers.filter((item: any) => {
+          return new Date(item.DepartureDate).getTime() >= new Date(data[0] + ' ' + data[1]).getTime() &&
+                 new Date(item.DepartureDate).getTime() <= new Date(data[2] + ' ' + data[3]).getTime();
+        });
+      }
+      
       this.customersData = filteredData;
     } else {
       this.customersData = this.customers;
