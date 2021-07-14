@@ -7,7 +7,6 @@ import { DateFilterComponent } from './filters/date-filter/date-filter.component
 import { MatFormFieldModule } from '@angular/material/form-field' ;
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     PrimeNgModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDatepickerModule,
-    NgxMaterialTimepickerModule
+    MatDatepickerModule
   ],
   exports: [
     CarFilter,
