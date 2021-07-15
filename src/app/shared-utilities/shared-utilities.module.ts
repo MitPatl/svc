@@ -6,7 +6,7 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { DateFilterComponent } from './filters/date-filter/date-filter.component';
 import { MatFormFieldModule } from '@angular/material/form-field' ;
 import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +18,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ReactiveFormsModule,
     PrimeNgModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule
+    MatInputModule
   ],
   exports: [
     CarFilter,
     DateFilterComponent
   ],
-  providers: [MatDatepickerModule]
+  providers: []
 })
 export class SharedUtilitiesModule { }

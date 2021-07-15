@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ModulesModule } from './modules/modules.module';
 import { SharedUtilitiesModule } from './shared-utilities/shared-utilities.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 
@@ -22,8 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     HttpClientModule,
     ModulesModule,
     ReactiveFormsModule,
-    SharedUtilitiesModule,
-    MatNativeDateModule
+    SharedUtilitiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
