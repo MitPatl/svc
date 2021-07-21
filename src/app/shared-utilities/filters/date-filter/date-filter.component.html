@@ -1,9 +1,11 @@
 <div class="pickerHeight">
     <div class="svc-header">Select Date Range</div>
     <div [formGroup]="searchForm">
-        <input type="date" formControlName="fromDate" /> <p-calendar formControlName="fromTime" [timeOnly]="true" inputId="timeonly"></p-calendar>
+        <input type="date" formControlName="fromDate" /> 
+        <!-- <p-calendar formControlName="fromTime" [timeOnly]="true" inputId="timeonly"></p-calendar> -->
       to
-      <input type="date" formControlName="toDate" /> <p-calendar formControlName="toTime" [timeOnly]="true" inputId="timeonly"></p-calendar>
+      <input type="date" formControlName="toDate" /> 
+      <!-- <p-calendar formControlName="toTime" [timeOnly]="true" inputId="timeonly"></p-calendar> -->
       <div *ngIf="noSearchData" class="redError">Please select date range</div>
       <div class="float-right mb-2">
         <button pButton (click)="clear()" class="p-button-secondary" label="Clear"></button>
