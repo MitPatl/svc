@@ -6,6 +6,7 @@ import { CarFilter } from 'src/app/shared-utilities/filters/car-filter/car-filte
 import { SharedService } from 'src/app/shared-utilities/shared.service';
 import 'ag-grid-enterprise';
 import { DateFilterComponent } from 'src/app/shared-utilities/filters/date-filter/date-filter.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-customer-list',
@@ -2322,8 +2323,55 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       { headerName: 'O', field: 'OriginState', width: '130px' },
       { headerName: 'Destination', field: 'Destination', width: '100px'},
       { headerName: 'D', field: 'DestinationState', width: '150px' },
-      { headerName: 'Departure', field: 'DepartureDate' , filter: 'dateFilter'},
-      { headerName: 'ETA Predicted', field: 'EtaDate', width: '100px'},
+      // { headerName: 'Departure', field: 'DepartureDate' , filter: 'dateFilter'},filter: 'agDateColumnFilter',
+      { headerName: 'Departure', field: 'DepartureDate' , filter: 'agDateColumnFilter',filterParams: {
+        buttons: ['reset', 'apply'],
+        debounceMs: 500,
+        suppressAndOrCondition: true,
+        comparator: function(filterLocalDateAtMidnight: any, cellValue: any) {
+          if (cellValue == null) {
+            return 0;
+          }
+          filterLocalDateAtMidnight = moment(filterLocalDateAtMidnight).format('MM/DD/YYYY');
+          // var dateParts = cellValue.split('/');
+          // var year = Number(dateParts[2]);
+          // var month = Number(dateParts[1]) - 1;
+          // var day = Number(dateParts[0]);
+          var cellDate = moment(cellValue).format('MM/DD/YYYY');
+
+          if (cellDate < filterLocalDateAtMidnight) {
+            return -1;
+          } else if (cellDate > filterLocalDateAtMidnight) {
+            return 1;
+          } else {
+            return 0;
+          }
+        },
+      },closeOnApply: true, valueFormatter: this.dateFormatter},
+      { headerName: 'ETA Predicted', field: 'EtaDate', width: '100px', filter: 'agDateColumnFilter',filterParams: {
+        buttons: ['reset', 'apply'],
+        debounceMs: 500,
+        suppressAndOrCondition: true,
+        comparator: function(filterLocalDateAtMidnight: any, cellValue: any) {
+          if (cellValue == null) {
+            return 0;
+          }
+          filterLocalDateAtMidnight = moment(filterLocalDateAtMidnight).format('MM/DD/YYYY');
+          // var dateParts = cellValue.split('/');
+          // var year = Number(dateParts[2]);
+          // var month = Number(dateParts[1]) - 1;
+          // var day = Number(dateParts[0]);
+          var cellDate = moment(cellValue).format('MM/DD/YYYY');
+
+          if (cellDate < filterLocalDateAtMidnight) {
+            return -1;
+          } else if (cellDate > filterLocalDateAtMidnight) {
+            return 1;
+          } else {
+            return 0;
+          }
+        },
+      },closeOnApply: true, valueFormatter: this.dateFormatter},
       { headerName: 'Arrival Status', field: 'ArrivalStatus'},
       { headerName: 'Code', field: 'ClmCode', width: '100px'},
       { headerName: 'Code Description', field: 'ClmCodeDescription'},
@@ -2356,6 +2404,10 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       this.filterDateData(searchTextValue);
     })
   );
+  }
+
+  dateFormatter(params: any) {
+    return moment(params.value).format('MM/DD/YYYY HH:mm:ss');
   }
 
   filterCarData(data: any) {
