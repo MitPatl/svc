@@ -2327,7 +2327,8 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       { headerName: 'Departure', field: 'DepartureDate' , filter: 'agDateColumnFilter',filterParams: {
         buttons: ['reset', 'apply'],
         debounceMs: 500,
-        suppressAndOrCondition: true,
+        
+        browserDatePicker: true,
         comparator: function(filterLocalDateAtMidnight: any, cellValue: any) {
           if (cellValue == null) {
             return 0;
