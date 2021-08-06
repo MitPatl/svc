@@ -44,3 +44,7 @@ p-chips{
   min-width: 100%;
   display: flex;
 }
+
+.ag-filter-apply-panel button:nth-child(1) {
+  background-color: yellow !important;
+}
