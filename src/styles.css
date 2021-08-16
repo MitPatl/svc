@@ -45,6 +45,21 @@ p-chips{
   display: flex;
 }
 
-.ag-filter-apply-panel button:nth-child(1) {
-  background-color: yellow !important;
+.ag-filter-apply-panel button {
+     color: #fff !important;
+      height: 30px !important;
+      padding: 0 10px !important;
+      border-radius: 4px !important;
 }
+
+.ag-filter-apply-panel button:hover {
+  background: teal !important
+}
+
+.ag-filter-apply-panel button:nth-child(1) {
+      background-color: #7b8585;
+  }
+
+.ag-filter-apply-panel button:nth-child(2) {
+      background-color: #112326;
+  }

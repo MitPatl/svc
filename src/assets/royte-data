@@ -1,0 +1,47 @@
+[8/13 6:18 PM] Bonnes, Matt
+    {​​​​​​​
+    "OriginLatitude": 41.817786,
+    "OriginLongitude": -87.870673,
+    "OriginName": "Chicago, IL",
+    "CurrentLocationLatitude": 38.65549256802165,
+    "CurrentLocationLongitude": -90.27951253288741,
+    "CurrentLocationName": "St Louis, MO",
+    "DestinationLatitude": 30.45063071056997,
+    "DestinationLongitude": -91.1220633405171,
+    "DestinationName": "Baton Rouge, LA"
+}​​​​​​​
+​[8/13 6:18 PM] Bonnes, Matt
+    we should add "Heading" in that
+​[8/13 6:18 PM] Bonnes, Matt
+    for the 0-360 degree rotation for the "front" of the asset indicator
+​[8/13 6:19 PM] Bonnes, Matt
+    {​​​​​​​
+    "OriginLatitude": 41.817786,
+    "OriginLongitude": -87.870673,
+    "OriginName": "Chicago, IL",
+    "CurrentLocationLatitude": 38.65549256802165,
+    "CurrentLocationLongitude": -90.27951253288741,
+    "CurrentLocationName": "St Louis, MO",
+    "DestinationLatitude": 30.45063071056997,
+    "DestinationLongitude": -91.1220633405171,
+    "DestinationName": "Baton Rouge, LA",
+    "Heading": 289
+}​​​​​​​
+​[8/13 6:19 PM] Bonnes, Matt
+    maybe a state too
+​[8/13 6:19 PM] Bonnes, Matt
+    {​​​​​​​
+    "OriginLatitude": 41.817786,
+    "OriginLongitude": -87.870673,
+    "OriginName": "Chicago, IL",
+    "CurrentLocationLatitude": 38.65549256802165,
+    "CurrentLocationLongitude": -90.27951253288741,
+    "CurrentLocationName": "St Louis, MO",
+    "DestinationLatitude": 30.45063071056997,
+    "DestinationLongitude": -91.1220633405171,
+    "DestinationName": "Baton Rouge, LA",
+    "Heading": 289,
+    "AssetStatus": "enroute"
+}​​​​​​​
+​[8/13 6:20 PM] Bonnes, Matt
+    this last one should be good.  The fact that it is "enroute" means that it is still travelling, and so the CurrentLocation to the Destination will be the dotted line.  The Origin to CurrentLocation will be the solid line

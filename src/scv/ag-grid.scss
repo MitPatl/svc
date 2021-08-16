@@ -483,3 +483,26 @@
     margin-left: 10px;
     top: -8px !important;
 }
+
+.ag-theme-material .ag-radio-button-input-wrapper.ag-checked::after {
+    color: teal !important;
+}
+
+.ag-theme-material .ag-select .ag-picker-field-wrapper {
+    min-height: 100%;
+}
+
+.ag-theme-material .ag-simple-filter-body-wrapper {
+    padding: 0;
+}
+.ag-theme-material .ag-picker-field-wrapper {
+    border-color: #ccc !important;
+}
+
+.p-button.ag-filter-apply-panel-button {
+    color: #ffffff
+}
+
+.ag-date-filter .ag-input-field-input.ag-text-field-input {
+    height: 30px !important;
+}
