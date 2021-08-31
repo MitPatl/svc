@@ -154,10 +154,30 @@
                         </div>
                         <div class="p-col">
                             <div class="box">
-                            <p-panel header="Map">
-                                <!-- <div #map style="width:100%;height:400px"></div> -->
+                            <!-- <p-panel header="Map">
+                                
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.949757477627!2d-75.58971974942935!3d39.94251349216686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f11abe2aafc7%3A0xf33e278ee256fe82!2s300%20Willowbrook%20Ln%2C%20West%20Chester%2C%20PA%2019382!5e0!3m2!1sen!2sus!4v1615696624928!5m2!1sen!2sus" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                            </p-panel>
+                            </p-panel> -->
+                                <agm-map [latitude]="startlat" [longitude]="startlng">
+                                    <agm-marker [latitude]="startlat" [longitude]="startlng" placement="top">
+                                    <agm-info-window  [disableAutoPan]="false" #infoWindow>
+
+                                        <div>
+                                            {{ title1 }}
+                                        </div>
+                                        
+                            
+                                    </agm-info-window></agm-marker>
+                                    <agm-marker [latitude]="endlat" [longitude]="endlng">
+                                        <agm-info-window [disableAutoPan]="false" #infoWindow1>
+
+                                            <div>
+                                                {{ title2 }}
+                                            </div>
+                                            
+                                
+                                        </agm-info-window></agm-marker>
+                                </agm-map>
                             </div>
                         </div>
                     </div>
