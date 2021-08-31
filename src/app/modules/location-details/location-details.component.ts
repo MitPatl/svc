@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AgmInfoWindow } from '@agm/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AgFilterComponent } from 'ag-grid-angular';
 import { MessageService, MenuItem } from 'primeng/api';
 import { SharedService } from 'src/app/shared-utilities/shared.service';
 
@@ -11,6 +13,8 @@ import { SharedService } from 'src/app/shared-utilities/shared.service';
   styleUrls: ['./location-details.component.scss']
 })
 export class LocationDetailsComponent implements OnInit {
+  @ViewChild('infoWindow') infoWindow!: AgmInfoWindow;
+  @ViewChild('infoWindow1') infoWindow1!: AgmInfoWindow;
   items: MenuItem[] = [];
   messageService: any;
   displayDialog: boolean = false;
@@ -25,6 +29,12 @@ export class LocationDetailsComponent implements OnInit {
   addressForm: FormGroup = this.fb.group({});
   prevName: any;
   nextName: any; 
+  startlat: any;
+  startlng: any;
+  endlat: any;
+  endlng: any;
+  title1: any = '';
+  title2: any = '';
     
   constructor(
     public sharedService: SharedService,
@@ -65,6 +75,14 @@ export class LocationDetailsComponent implements OnInit {
       this.showMaximizableDialog();
       this.selectedData.push(resp.list[resp.index]);
       
+      this.startlat = resp.list[resp.index].Latitude;
+      this.startlng = resp.list[resp.index].Longitude;
+
+      this.endlat = 38.685607910156;
+      this.endlng = -90.210296630859;
+      this.title1 = "test1";
+      this.title2 = "test2";
+      
       this.customers = resp.list;
       this.nextData = resp.index;
       if(this.customers.length === 1) {
@@ -85,7 +103,19 @@ export class LocationDetailsComponent implements OnInit {
       } else {
         this.nextName = resp.list[resp.index].Asset;
       }
+
+      setTimeout(() =>{
+        if(this.infoWindow){
+          this.onMouseOver(this.infoWindow, '');
+        }
+        if(this.infoWindow1){
+          this.onMouseOver(this.infoWindow1, '');
+        }
+      }, 10);
+      
     })
+    
+    
   }
   initOverlays() {
     throw new Error('Method not implemented.');
@@ -152,6 +182,14 @@ export class LocationDetailsComponent implements OnInit {
         this.selectedData.push(this.customers[this.nextData]);
       }
     //}
+  }
+
+  onMouseOver(infoWindow: any, event: any){
+    infoWindow.open();
+  }
+
+  onMouseOut(infoWindow: any, event: any){
+    infoWindow.close();
   }
 
 }
