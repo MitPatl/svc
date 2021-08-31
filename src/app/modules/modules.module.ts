@@ -12,7 +12,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AddCarsComponent } from './add-cars/add-cars.component';
 import { AddFleetComponent } from './add-cars/components/add-fleet/add-fleet.component';
 import { ArchiveFleetComponent } from './add-cars/components/archive-fleet/archive-fleet.component';
-
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -34,6 +34,9 @@ import { ArchiveFleetComponent } from './add-cars/components/archive-fleet/archi
     PrimeNgModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([])
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    })
   ],
   providers: [
     SharedService
