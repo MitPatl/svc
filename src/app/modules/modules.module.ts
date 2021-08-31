@@ -33,7 +33,7 @@ import { AgmCoreModule } from '@agm/core';
     routing,
     PrimeNgModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
     AgmCoreModule.forRoot({
       apiKey: ''
     })
