@@ -42,6 +42,9 @@
     "DestinationName": "Baton Rouge, LA",
     "Heading": 289,
     "AssetStatus": "enroute"
+    
+    Google maps API Key:
+ AIzaSyDIKvyHXS7bsezEvyfhutbnhJlWqpsyZsQ
 }​​​​​​​
 ​[8/13 6:20 PM] Bonnes, Matt
     this last one should be good.  The fact that it is "enroute" means that it is still travelling, and so the CurrentLocation to the Destination will be the dotted line.  The Origin to CurrentLocation will be the solid line
